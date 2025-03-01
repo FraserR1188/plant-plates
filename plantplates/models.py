@@ -1,6 +1,9 @@
 from plantplates import db
 from datetime import datetime
 
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 # ------------------------------
 # 1. User Model
@@ -13,6 +16,14 @@ class User(db.Model):
     name = db.Column(db.String(25), nullable=False)
     age = db.Column(db.Integer)
     password_hash = db.Column(db.String(255), nullable=False)
+
+    def set_password(self, password):
+        """Hashes a plaintext password and stores it."""
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        """Compares a plaintext password with the stored hash."""
+        return check_password_hash(self.password_hash, password)
 
     # Relationships between the User model
     recipes = db.relationship(
