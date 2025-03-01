@@ -40,7 +40,7 @@ def login():
             # Valid credentials
             login_user(user)
             flash("Logged in successfully!", "success")
-            return redirect(url_for('protected'))
+            return redirect(url_for('account'))
         else:
             # Invalid credentials
             flash("Invalid email or password.", "error")
@@ -73,8 +73,44 @@ def signup():
 
         flash("Account created successfully! You are now logged in.")
         login_user(new_user)  # Log the user in automatically after signup
-        return redirect(url_for('protected'))
+        return redirect(url_for('account'))
     return render_template('signup.html')
+
+
+@app.route('/account')
+@login_required
+def account():
+    """Display the account page showing the logged-in user's details."""
+    return render_template('account.html')
+
+
+@app.route('/create_recipe', methods=['GET', 'POST'])
+@login_required
+def create_recipe():
+    if request.method == 'POST':
+        # Retrieve form data
+        title = request.form.get('title')
+        # Add additional fields as needed, e.g., ingredients, instructions, etc.
+        # Create a new Recipe object associated with the current user
+        new_recipe = Recipe(
+            title=title,
+            user_id=current_user.id  # Ensures the recipe is linked to the logged-in user
+        )
+        # Save the new recipe to the database
+        db.session.add(new_recipe)
+        db.session.commit()
+        flash("Recipe created successfully!", "success")
+        # Redirect to a page that shows the new recipe (e.g., user's recipe list)
+        return redirect(url_for('my_recipes'))
+    # GET request: Render the create recipe page
+    return render_template('create_recipe.html')
+
+
+@app.route('/my_recipes')
+@login_required
+def my_recipes():
+    user_recipes = Recipe.query.filter_by(user_id=current_user.id).all()
+    return render_template('my_recipes.html', recipes=user_recipes)
 
 
 @app.route('/logout')
@@ -82,7 +118,7 @@ def signup():
 def logout():
     logout_user()
     flash("You have been logged out.", "info")
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 
 
 @app.route('/protected')

@@ -7,3 +7,11 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.header-color {
+  background-color: #626e60;
+}
+
+.brand-logo {
+  margin-left: 10px;
+}

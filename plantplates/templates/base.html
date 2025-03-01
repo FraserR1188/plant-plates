@@ -16,7 +16,7 @@
 
   <body>
     <header>
-      <nav class="light-blue darken-1">
+      <nav class="header-color">
         <div class="nav-wrapper">
           <a href="{{ url_for('home') }}" class="brand-logo">Plant Plates</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"
@@ -26,7 +26,7 @@
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
-            <li><a href="">Home</a></li>
+            <li><a href="{{ url_for('account') }}">Account</a></li>
             <li><a href="">Home</a></li>
           </ul>
         </div>
