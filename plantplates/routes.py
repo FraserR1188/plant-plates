@@ -90,17 +90,35 @@ def create_recipe():
     if request.method == 'POST':
         # Retrieve form data
         title = request.form.get('title')
-        # Add additional fields as needed, e.g., ingredients, instructions, etc.
-        # Create a new Recipe object associated with the current user
+        image_url = request.form.get('image_url')
+        seasonal = request.form.get('seasonal')
+        total_time = request.form.get('total_time')
+        yield_ = request.form.get('yield')  # 'yield' is a Python keyword; you can store it as yield_ in your model
+        ingredients = request.form.get('ingredients')
+        calories = request.form.get('calories')
+        steps_to_prepare = request.form.get('steps_to_prepare')
+        summary = request.form.get('summary')
+
+        # Create a new Recipe object associated with the logged-in user
         new_recipe = Recipe(
             title=title,
-            user_id=current_user.id  # Ensures the recipe is linked to the logged-in user
+            image_url=image_url,
+            seasonal=seasonal,
+            total_time=total_time,
+            yield_=yield_,
+            ingredients=ingredients,
+            calories=calories,
+            steps_to_prepare=steps_to_prepare,
+            summary=summary,
+            user_id=current_user.id
         )
+        
         # Save the new recipe to the database
         db.session.add(new_recipe)
         db.session.commit()
         flash("Recipe created successfully!", "success")
-        # Redirect to a page that shows the new recipe (e.g., user's recipe list)
+        # Redirect to a page that shows the new recipe
+        # (e.g., user's recipe list)
         return redirect(url_for('my_recipes'))
     # GET request: Render the create recipe page
     return render_template('create_recipe.html')
