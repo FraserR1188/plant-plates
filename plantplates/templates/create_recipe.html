@@ -21,19 +21,78 @@
 
   <!-- Recipe creation form -->
   <form method="POST" action="{{ url_for('create_recipe') }}">
+    <!-- Title -->
     <div class="input-field">
-      <input id="recipeTitle" type="text" name="title" required />
-      <label for="recipeTitle">Recipe Title</label>
+      <input id="title" type="text" name="title" required />
+      <label for="title">Recipe Title</label>
     </div>
-    <!-- Add additional fields as needed -->
-    <!-- Example: Ingredients -->
-    <!--
+
+    <!-- Image URL -->
     <div class="input-field">
-      <textarea id="ingredients" name="ingredients" class="materialize-textarea" required></textarea>
+      <input id="image_url" type="url" name="image_url" />
+      <label for="image_url">Image URL</label>
+    </div>
+
+    <!-- Seasonal -->
+    <div class="input-field">
+      <input id="seasonal" type="text" name="seasonal" />
+      <label for="seasonal">Seasonal</label>
+    </div>
+
+    <!-- Total Time -->
+    <div class="input-field">
+      <input id="total_time" type="number" name="total_time" min="0" />
+      <label for="total_time">Total Time (in minutes)</label>
+    </div>
+
+    <!-- Yield -->
+    <div class="input-field">
+      <input id="yield" type="number" name="yield" min="0" />
+      <label for="yield">Yield (number of servings)</label>
+    </div>
+
+    <!-- Ingredients -->
+    <div class="input-field">
+      <textarea
+        id="ingredients"
+        class="materialize-textarea"
+        name="ingredients"
+        required
+        placeholder="Enter one ingredient per line"
+      ></textarea>
       <label for="ingredients">Ingredients</label>
     </div>
-    -->
 
+    <!-- Calories -->
+    <div class="input-field">
+      <input id="calories" type="number" name="calories" min="0" />
+      <label for="calories">Calories</label>
+    </div>
+
+    <!-- Steps to Prepare -->
+    <div class="input-field">
+      <textarea
+        id="steps_to_prepare"
+        class="materialize-textarea"
+        name="steps_to_prepare"
+        required
+        placeholder="Enter one step per line"
+      ></textarea>
+      <label for="steps_to_prepare">Steps to Prepare</label>
+    </div>
+
+    <!-- Summary -->
+    <div class="input-field">
+      <textarea
+        id="summary"
+        class="materialize-textarea"
+        name="summary"
+        placeholder="A short summary of your recipe"
+      ></textarea>
+      <label for="summary">Summary</label>
+    </div>
+
+    <!-- Submit Button -->
     <button type="submit" class="btn waves-effect waves-light">
       Create Recipe
     </button>

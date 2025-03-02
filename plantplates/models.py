@@ -74,6 +74,8 @@ class Recipe(db.Model):
     image_url = db.Column(db.String(255))
     seasonal = db.Column(db.String(50))
     total_time = db.Column(db.Integer, nullable=False)
+    steps_to_prepare = db.Column(db.Text)
+    summary = db.Column(db.Text)
     # "yield" is a Python keyword; using yield_ is common practice
     yield_ = db.Column(db.Integer)
     ingredients = db.Column(db.Text, nullable=False)
