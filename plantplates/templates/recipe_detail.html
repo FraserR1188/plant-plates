@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container" style="margin-top: 50px">
+  <h3>{{ recipe.title }}</h3>
+
+  <!-- Recipe Image -->
+  {% if recipe.image_filename %}
+  <img
+    src="{{ url_for('static', filename='uploads/' ~ recipe.image_filename) }}"
+    alt="Recipe Image"
+    style="max-width: 600px"
+  />
+  {% else %}
+  <img
+    src="{{ url_for('static', filename='placeholder.png') }}"
+    alt="No Image"
+    style="max-width: 600px"
+  />
+  {% endif %}
+
+  <p><strong>Seasonal:</strong> {{ recipe.seasonal or 'N/A' }}</p>
+  <p><strong>Total Time:</strong> {{ recipe.total_time }} minutes</p>
+  <p><strong>Yield:</strong> {{ recipe.yield_ }} servings</p>
+  <p><strong>Calories:</strong> {{ recipe.calories }}</p>
+
+  <!-- Summary -->
+  {% if recipe.summary %}
+  <h5>Summary</h5>
+  <p>{{ recipe.summary }}</p>
+  {% endif %}
+
+  <!-- Ingredients as bullet points -->
+  {% if recipe.ingredients %}
+  <h5>Ingredients</h5>
+  <ul>
+    {% for ingredient in recipe.ingredients.splitlines() %} {% if
+    ingredient.strip() %}
+    <li>{{ ingredient }}</li>
+    {% endif %} {% endfor %}
+  </ul>
+  {% endif %}
+
+  <!-- Steps to Prepare as bullet points -->
+  {% if recipe.steps_to_prepare %}
+  <h5>Steps to Prepare</h5>
+  <ol>
+    {% for step in recipe.steps_to_prepare.splitlines() %} {% if step.strip() %}
+    <li>{{ step }}</li>
+    {% endif %} {% endfor %}
+  </ol>
+  {% endif %}
+
+  <div style="margin-top: 20px">
+    <a href="{{ url_for('my_recipes') }}" class="btn grey"
+      >Back to My Recipes</a
+    >
+  </div>
+</div>
+
+{% endblock %}

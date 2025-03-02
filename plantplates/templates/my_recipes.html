@@ -1,23 +1,73 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="row">
-  <div class="col s12 m6 l3">
-    <div class="card">
-      <div class="card-image">
-        <img src="images/sample-1.jpg" />
-        <span class="card-title">Card Title</span>
-      </div>
-      <div class="card-content">
-        <p>
-          I am a very simple card. I am good at containing small bits of
-          information. I am convenient because I require little markup to use
-          effectively.
-        </p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
+<div class="container" style="margin-top: 50px">
+  <h3>My Recipes</h3>
+
+  <!-- Display flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div class="row">
+    {% for category, message in messages %}
+    <div class="col s12">
+      <div
+        class="card-panel {{ 'green lighten-4' if category == 'success' else 'red lighten-4' }}"
+      >
+        {{ message }}
       </div>
     </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <!-- Button to create a new recipe -->
+  <a href="{{ url_for('create_recipe') }}" class="btn waves-effect waves-light">
+    Create New Recipe
+  </a>
+
+  <div class="row" style="margin-top: 20px">
+    {% if recipes %} {% for recipe in recipes %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <!-- If using uploaded images -->
+          {% if recipe.image_filename %}
+          <img
+            src="{{ url_for('static', filename='uploads/' ~ recipe.image_filename) }}"
+            alt="Recipe Image"
+            style="height: 200px; object-fit: cover"
+          />
+          {% else %}
+          <!-- Fallback image if none uploaded -->
+          <img
+            src="{{ url_for('static', filename='placeholder.png') }}"
+            alt="No Image"
+            style="height: 200px; object-fit: cover"
+          />
+          {% endif %}
+          <span class="card-title">{{ recipe.title }}</span>
+        </div>
+        <div class="card-content">
+          <!-- Show a short snippet or summary if available -->
+          {% if recipe.summary %}
+          <p>{{ recipe.summary|truncate(100) }}</p>
+          {% else %}
+          <p>No summary available.</p>
+          {% endif %}
+        </div>
+        <div class="card-action">
+          <!-- Link to the detail page for this recipe -->
+          <a
+            href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"
+            class="blue-text"
+          >
+            View Recipe
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>You have no recipes yet. Why not create one?</p>
+    {% endif %}
   </div>
 </div>
 
