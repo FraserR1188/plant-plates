@@ -27,10 +27,19 @@
       <label for="title">Recipe Title</label>
     </div>
 
-    <!-- Image URL -->
-    <div class="input-field">
-      <input id="image_url" type="url" name="image_url" />
-      <label for="image_url">Image URL</label>
+    <!-- File input for uploading image -->
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Upload Image</span>
+        <input type="file" name="image_file" accept="image/*" />
+      </div>
+      <div class="file-path-wrapper">
+        <input
+          class="file-path validate"
+          type="text"
+          placeholder="Upload your recipe image"
+        />
+      </div>
     </div>
 
     <!-- Seasonal -->

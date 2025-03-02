@@ -49,7 +49,6 @@ class Category(db.Model):
     id = db.Column(db.BigInteger, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
 
-    # A category can have many recipes
     recipes = db.relationship('Recipe', back_populates='category')
 
     def __repr__(self):
@@ -71,12 +70,11 @@ class Recipe(db.Model):
         nullable=True)
 
     title = db.Column(db.String(255), nullable=False)
-    image_url = db.Column(db.String(255))
+    image_filename = db.Column(db.String(255))
     seasonal = db.Column(db.String(50))
     total_time = db.Column(db.Integer, nullable=False)
     steps_to_prepare = db.Column(db.Text)
     summary = db.Column(db.Text)
-    # "yield" is a Python keyword; using yield_ is common practice
     yield_ = db.Column(db.Integer)
     ingredients = db.Column(db.Text, nullable=False)
     calories = db.Column(db.Integer)
