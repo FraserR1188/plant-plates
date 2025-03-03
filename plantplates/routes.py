@@ -195,11 +195,6 @@ def recipe_detail(recipe_id):
     # Fetch the recipe from the DB; 404 if not found
     recipe = Recipe.query.get_or_404(recipe_id)
 
-    # (Optional) If you want to restrict so only the owner can view:
-    # if recipe.user_id != current_user.id:
-    #     flash("You don't have permission to view this recipe.", "error")
-    #     return redirect(url_for('my_recipes'))
-
     return render_template('recipe_detail.html', recipe=recipe)
 
 

@@ -19,8 +19,12 @@
   </div>
   {% endif %} {% endwith %}
 
-  <!-- Recipe creation form -->
-  <form method="POST" action="{{ url_for('create_recipe') }}">
+  <!-- Recipe creation form with enctype for file upload -->
+  <form
+    method="POST"
+    action="{{ url_for('create_recipe') }}"
+    enctype="multipart/form-data"
+  >
     <!-- Title -->
     <div class="input-field">
       <input id="title" type="text" name="title" required />
