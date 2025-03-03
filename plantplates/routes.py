@@ -135,6 +135,53 @@ def create_recipe():
     return render_template('create_recipe.html')
 
 
+@app.route('/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_recipe(recipe_id):
+    # Fetch the recipe or return 404 if not found
+    recipe = Recipe.query.get_or_404(recipe_id)
+    # Only allow the owner to edit their recipe.
+    if recipe.user_id != current_user.id:
+        flash("You do not have permission to edit this recipe.", "error")
+        return redirect(url_for('my_recipes'))
+    if request.method == 'POST':
+        # Update text fields
+        recipe.title = request.form.get('title')
+        recipe.seasonal = request.form.get('seasonal')
+        recipe.total_time = request.form.get('total_time')
+        recipe.yield_ = request.form.get('yield')
+        recipe.ingredients = request.form.get('ingredients')
+        recipe.calories = request.form.get('calories')
+        recipe.steps_to_prepare = request.form.get('steps_to_prepare')
+        recipe.summary = request.form.get('summary')
+        # Optionally handle image file update
+        file = request.files.get('image_file')
+        if file and file.filename:
+            filename = secure_filename(file.filename)
+            # Optionally, check for allowed file extensions here
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+            recipe.image_filename = filename  # Update the image filename
+        db.session.commit()
+        flash("Recipe updated successfully!", "success")
+        return redirect(url_for('recipe_detail', recipe_id=recipe.id))
+    return render_template('edit_recipe.html', recipe=recipe)
+
+
+@app.route('/recipe/<int:recipe_id>/delete', methods=['POST'])
+@login_required
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    # Ensure that only the owner can delete their recipe.
+    if recipe.user_id != current_user.id:
+        flash("You do not have permission to delete this recipe.", "error")
+        return redirect(url_for('recipe_detail', recipe_id=recipe.id))
+    db.session.delete(recipe)
+    db.session.commit()
+    flash("Recipe deleted successfully!", "success")
+    return redirect(url_for('my_recipes'))
+
+
 @app.route('/my_recipes')
 @login_required
 def my_recipes():

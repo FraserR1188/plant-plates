@@ -1,0 +1,158 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container" style="margin-top: 50px">
+  <h3>Edit Recipe</h3>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div class="row">
+    {% for category, message in messages %}
+    <div class="col s12">
+      <div
+        class="card-panel {{ 'green lighten-4' if category == 'success' else 'red lighten-4' }}"
+      >
+        {{ message }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <!-- Form: note enctype for file uploads -->
+  <form
+    method="POST"
+    action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
+    enctype="multipart/form-data"
+  >
+    <!-- Recipe Title -->
+    <div class="input-field">
+      <input
+        id="title"
+        type="text"
+        name="title"
+        value="{{ recipe.title }}"
+        required
+      />
+      <label for="title" class="active">Recipe Title</label>
+    </div>
+
+    <!-- Image Upload -->
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Upload New Image</span>
+        <input type="file" name="image_file" accept="image/*" />
+      </div>
+      <div class="file-path-wrapper">
+        <input
+          class="file-path validate"
+          type="text"
+          placeholder="Upload new image (optional)"
+        />
+      </div>
+    </div>
+    <!-- Optionally show current image -->
+    {% if recipe.image_filename %}
+    <img
+      src="{{ url_for('static', filename='uploads/' ~ recipe.image_filename) }}"
+      alt="Current Image"
+      style="max-width: 200px; margin-top: 10px"
+    />
+    {% endif %}
+
+    <!-- Seasonal -->
+    <div class="input-field">
+      <input
+        id="seasonal"
+        type="text"
+        name="seasonal"
+        value="{{ recipe.seasonal }}"
+      />
+      <label for="seasonal" class="active">Seasonal</label>
+    </div>
+
+    <!-- Total Time -->
+    <div class="input-field">
+      <input
+        id="total_time"
+        type="number"
+        name="total_time"
+        value="{{ recipe.total_time }}"
+      />
+      <label for="total_time" class="active">Total Time (minutes)</label>
+    </div>
+
+    <!-- Yield -->
+    <div class="input-field">
+      <input
+        id="yield"
+        type="number"
+        name="yield"
+        value="{{ recipe.yield_ }}"
+      />
+      <label for="yield" class="active">Yield (servings)</label>
+    </div>
+
+    <!-- Ingredients (One ingredient per line) -->
+    <div class="input-field">
+      <textarea
+        id="ingredients"
+        class="materialize-textarea"
+        name="ingredients"
+        placeholder="One ingredient per line"
+      >
+{{ recipe.ingredients }}</textarea
+      >
+      <label for="ingredients" class="active">Ingredients</label>
+    </div>
+
+    <!-- Calories -->
+    <div class="input-field">
+      <input
+        id="calories"
+        type="number"
+        name="calories"
+        value="{{ recipe.calories }}"
+      />
+      <label for="calories" class="active">Calories</label>
+    </div>
+
+    <!-- Steps to Prepare (One step per line) -->
+    <div class="input-field">
+      <textarea
+        id="steps_to_prepare"
+        class="materialize-textarea"
+        name="steps_to_prepare"
+        placeholder="One step per line"
+      >
+{{ recipe.steps_to_prepare }}</textarea
+      >
+      <label for="steps_to_prepare" class="active">Steps to Prepare</label>
+    </div>
+
+    <!-- Summary -->
+    <div class="input-field">
+      <textarea
+        id="summary"
+        class="materialize-textarea"
+        name="summary"
+        placeholder="A short summary"
+      >
+{{ recipe.summary }}</textarea
+      >
+      <label for="summary" class="active">Summary</label>
+    </div>
+
+    <!-- Form Buttons -->
+    <button type="submit" class="btn waves-effect waves-light">
+      Update Recipe
+    </button>
+    <a
+      href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"
+      class="btn grey"
+      >Cancel</a
+    >
+  </form>
+</div>
+
+{% endblock %}
