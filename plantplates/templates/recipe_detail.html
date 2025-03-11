@@ -4,18 +4,14 @@
   <h3>{{ recipe.title }}</h3>
 
   <!-- Recipe Image -->
-  {% if recipe.image_filename %}
+  {% if recipe.image_url %}
   <img
-    src="{{ url_for('static', filename='uploads/' ~ recipe.image_filename) }}"
+    src="{{ recipe.image_url }}"
     alt="Recipe Image"
-    style="max-width: 600px"
+    style="max-width: 400px"
   />
   {% else %}
-  <img
-    src="{{ url_for('static', filename='placeholder.png') }}"
-    alt="No Image"
-    style="max-width: 600px"
-  />
+  <p>No image uploaded.</p>
   {% endif %}
 
   <p><strong>Seasonal:</strong> {{ recipe.seasonal or 'N/A' }}</p>

@@ -70,7 +70,7 @@ class Recipe(db.Model):
         nullable=True)
 
     title = db.Column(db.String(255), nullable=False)
-    image_filename = db.Column(db.String(255))
+    image_url = db.Column(db.String(500))
     seasonal = db.Column(db.String(50))
     total_time = db.Column(db.Integer, nullable=False)
     steps_to_prepare = db.Column(db.Text)

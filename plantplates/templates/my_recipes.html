@@ -30,19 +30,14 @@
       <div class="card">
         <div class="card-image">
           <!-- If using uploaded images -->
-          {% if recipe.image_filename %}
+          {% if recipe.image_url %}
           <img
-            src="{{ url_for('static', filename='uploads/' ~ recipe.image_filename) }}"
+            src="{{ recipe.image_url }}"
             alt="Recipe Image"
-            style="height: 200px; object-fit: cover"
+            style="max-width: 400px"
           />
           {% else %}
-          <!-- Fallback image if none uploaded -->
-          <img
-            src="{{ url_for('static', filename='placeholder.png') }}"
-            alt="No Image"
-            style="height: 200px; object-fit: cover"
-          />
+          <p>No image uploaded.</p>
           {% endif %}
           <span class="card-title">{{ recipe.title }}</span>
         </div>
