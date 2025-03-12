@@ -2,11 +2,6 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-
-import boto3
-
-s3_client = boto3.client('s3')
-
 if os.path.exists("env.py"):
     import env  # noqa
 
