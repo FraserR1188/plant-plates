@@ -1,5 +1,4 @@
 import os
-import env
 import boto3
 from plantplates import app, db
 from plantplates.models import User, Category, Recipe, Review, Article
