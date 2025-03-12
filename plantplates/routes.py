@@ -119,21 +119,19 @@ def create_recipe():
 
             # Upload to S3
             s3_client = boto3.client('s3')
-            bucket_name = "my-plantplates-images"  # Replace with your bucket name
+            bucket_name = "plantplates-images"
             
             s3_client.upload_fileobj(
                 file,
                 bucket_name,
                 s3_key,
                 ExtraArgs={
-                    # This makes the image public - change this if not required
-                    'ACL': 'public-read',
                     'ContentType': file.content_type
                 }
             )
             
             # Construct the image URL (if public is necessary)
-            region = "eu-north-1"
+            region = "eu-west-2"
             image_url = f"https://{bucket_name}.s3.{region}.amazonaws.com/{s3_key}"
 
         # Create a new Recipe object associated with the logged-in user
