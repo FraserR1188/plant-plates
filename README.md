@@ -1,131 +1,82 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Plant Plates
 
-Welcome USER_NAME,
+## Milestone Project 3 - Backend Development
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+(This is spacing for the main image once project is complete)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+- The recipe website is aimed at age 12 onwards to enjoy to cook. The website should bring inspiration and enjoyment through cooking. It should also entice the visitor to prepare something that they did not intend. We want this to be a hub of activity and a place where users will store there recipes and allow other people to view them.
+- This is my Milestone Project 3 submission for Code Institutes Diploma in Web Application Development Course. My website uses both relational and non-relational databases, features full CRUD functionality and is built using technologies that I have learnt including HTML, CSS, JavaScript, Python, Flask and PostgreSQL.
 
-## Gitpod Reminders
+## Project Link
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+(Link to the project)
 
-`python3 -m http.server`
+## Repository
 
-A blue button should appear to click: _Make Public_,
+(Link to repo)
 
-Another blue button should appear to click: _Open Browser_.
+## Project Goals
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+This website is dedicated for people who love food and want to share there love for food. This also has a heavy influence from myself and my girlfriend as this is a dream we've always wanted, a website where we can express our creativity with food for everyone to enjoy. There will be a lot of recipes from ourselves but also recipes from other people who have uploaded them. There are also articles about food which people can read and create themselves.
 
-A blue button should appear to click: _Make Public_,
+There is an account page which will be the hub for the return user so they can store all their recipes and have somewhere to go back to.
 
-Another blue button should appear to click: _Open Browser_.
+# Table of Contents
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Contents
 
-To log into the Heroku toolbelt CLI:
+1. User Stories
+   - [First-time Users](#first-time-users)
+   - [Returning Users](#returning-users)
+   - [Website Owners](#website-owners)
+2. [Design](#design)
+   - [Typography](#typograhy)
+   - [Images](#images)
+   - [Colour Scheme](#color-scheme)
+   - [Wireframes](#wireframes)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### First time Users
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+- As a first-time user, I want the website to be accessible on any device.
+- As a first-time user, I want the website to be easy to navigate.
+- As a first-time user, I want to sign-up quickly and easily.
+- As a first-time user, I want find what recipe I want quickly and easily.
 
-### Connecting your Mongo database
+### Returning Users
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+- As a returning user, I want to be able to login easily on the homepage.
+- As a returning user, I want to be able to create / read / edit / delete my own recipes.
+- As a returning user, I want to be able to search for recipes with keyword criteria, as well as specific recipe criteria e.g. difficulty, cuisine, ingredients, how to cook.
+- As a returning user, I want to see featured / trending recipes on the homepage.
+- As a returning user, I want the website to be accessible on any device.
+- As a returning user, I want the recipe layout to be in an organised list with an image referring to the dish.
+- As a returning user, I would like to have access to social media links.
+- As a returning user, I want the option to have an e-mail newsletter.
+- As a returning user, I want to know more about the owners and their ethos.
 
-------
+### Website Owners
 
-## Release History
+- As a website owner, I want to make the website homely and connected to it's returning users.
+- As a website owner, I want to let all visitors know about the ethos behind the website.
+- As a website owner, I want to be able to create /read / edit / delete cuisines and also give to
+- As a website owner, I want the website to function on all devices and look appealing.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Design
 
-**June 18, 2024,** Add Mongo back into template
+### Overview
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+We want the design to homely but modern with very sleek kitchen feel. This is a place for people who can cook and if they are on the site for long we want it to be aesthetically pleasing. The name of the website is "Plant Plates", we are vegan and this represents that. We've look at multiple popular websites to understand the design layout and how they use the space appropriately e.g. not too many images, easy to read writing.
 
-**May 28 2024:** Fix Mongo and Links installs
+### Colour
 
-**April 26 2024:** Update node version to 16
+[insert colour scheme here]
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Typography
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+The fonts which I have picked are Lora and Playfair Display. I will use Lora for main headings and buttons where as I'll use Playfair Display for paragraphing and longer pieces of text. Both of these fonts are different, easy to read and also quite elegant.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Imagery
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Since it is a recipe website, I'm going to keep most of the images centered around the food. Most images will be posted by the users through the creation of recipes. Articles can also have images which will be posted through the same way as recipes.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Wireframes
