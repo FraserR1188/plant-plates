@@ -73,6 +73,7 @@ class Recipe(db.Model):
     image_url = db.Column(db.String(500))
     seasonal = db.Column(db.String(50))
     total_time = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     steps_to_prepare = db.Column(db.Text)
     summary = db.Column(db.Text)
     yield_ = db.Column(db.Integer)

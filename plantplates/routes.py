@@ -26,7 +26,9 @@ login_manager.login_view = 'login'  # The endpoint name for your login page
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    latest_recipes = Recipe.query.order_by(
+        Recipe.created_at.desc()).limit(4).all()
+    return render_template("home.html", latest_recipes=latest_recipes)
 
 
 @login_manager.user_loader

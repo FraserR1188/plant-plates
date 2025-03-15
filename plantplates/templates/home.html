@@ -1,5 +1,39 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Home</h3>
+<h1 class="light-blue-text text-darken-4 center-align">
+  Welcome to Plant Plates
+</h1>
+<body>
+  <div class="container">
+    <h2 class="center-align">Latest and Greatest</h2>
+    <div class="row">
+      {% for recipe in latest_recipes %}
+      <div class="col s12 m6">
+        <div class="card medium">
+          <div class="card-image">
+            {% if recipe.image_url %}
+            <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}" />
+            {% else %}
+            <img
+              src="{{ url_for('static', filename='placeholder.png') }}"
+              alt="No Image Available"
+            />
+            {% endif %}
+            <span class="card-title">{{ recipe.title }}</span>
+          </div>
+          <div class="card-content">
+            <p>{{ recipe.summary or "No summary available." }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"
+              >View Recipe</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 
-{% endblock %}
+  {% endblock %}
+</body>

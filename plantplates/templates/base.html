@@ -16,18 +16,21 @@
 
   <body>
     <header>
-      <nav class="header-color">
+      <nav>
         <div class="nav-wrapper">
           <a href="{{ url_for('home') }}" class="brand-logo">Plant Plates</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="material-icons">menu</i></a
-          >
-          <ul class="right hide-on-med-and-down">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% if current_user.is_authenticated %}
+            <!-- Links for logged-in users -->
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
             <li><a href="{{ url_for('account') }}">Account</a></li>
-            <li><a href="">Home</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+            <!-- Links for visitors who are not logged in -->
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
