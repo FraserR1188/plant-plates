@@ -213,7 +213,6 @@ def my_recipes():
 
 
 @app.route('/recipe/<int:recipe_id>')
-@login_required
 def recipe_detail(recipe_id):
     # Fetch the recipe from the DB; 404 if not found
     recipe = Recipe.query.get_or_404(recipe_id)
@@ -233,3 +232,11 @@ def logout():
 @login_required
 def protected():
     return f"Hello, {current_user.email}! Only logged-in users can see this."
+
+
+@app.route('/all_recipes')
+def all_recipes():
+    # Query all recipes in the database
+    recipes = Recipe.query.all()
+    return render_template('all_recipes.html', recipes=recipes)
+
