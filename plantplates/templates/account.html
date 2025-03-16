@@ -35,20 +35,15 @@
     </div>
   </div>
 
-  <!-- Logout button -->
-  <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn red"
-    >Logout</a
-  >
-</div>
-
-<!-- Login Success Modal -->
-<div id="login-success-modal" class="modal">
-  <div class="modal-content center-align">
-    <h4>Success!</h4>
-    <p>Logged in successfully!</p>
+  <!-- Login Success Modal -->
+  <div id="login-success-modal" class="modal">
+    <div class="modal-content center-align">
+      <h4>Success!</h4>
+      <p>Logged in successfully!</p>
+    </div>
   </div>
-</div>
 
-<!-- Modal Trigger Script: Only open if a success flash message exists -->
-{% with messages = get_flashed_messages(category_filter=['success']) %} {% if
-messages %} {% endif %} {% endwith %} {% endblock %}
+  <!-- Modal Trigger Script: Only open if a success flash message exists -->
+  {% with messages = get_flashed_messages(category_filter=['success']) %} {% if
+  messages %} {% endif %} {% endwith %} {% endblock %}
+</div>

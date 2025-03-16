@@ -163,6 +163,11 @@ p {
   object-fit: cover; /* Ensures the image covers the container */
 }
 
+.recipe-detail {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 /* Adjust container height on smaller screens */
 @media (max-width: 768px) {
   .parallax-container {

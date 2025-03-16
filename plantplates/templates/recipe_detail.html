@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="container" style="margin-top: 50px">
-  <h3>{{ recipe.title }}</h3>
+<div class="container recipe-detail">
+  <h3 class="recipe-title">{{ recipe.title }}</h3>
 
   <!-- Recipe Image -->
   {% if recipe.image_url %}
@@ -12,17 +12,15 @@
   />
   {% else %}
   <p>No image uploaded.</p>
+  {% endif %} {% if recipe.summary %}
+  <h5>Summary</h5>
+  <p>{{ recipe.summary }}</p>
   {% endif %}
 
   <p><strong>Seasonal:</strong> {{ recipe.seasonal or 'N/A' }}</p>
   <p><strong>Total Time:</strong> {{ recipe.total_time }} minutes</p>
   <p><strong>Yield:</strong> {{ recipe.yield_ }} servings</p>
   <p><strong>Calories:</strong> {{ recipe.calories }}</p>
-
-  {% if recipe.summary %}
-  <h5>Summary</h5>
-  <p>{{ recipe.summary }}</p>
-  {% endif %}
 
   <h5>Ingredients</h5>
   <ul>

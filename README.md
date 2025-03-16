@@ -118,3 +118,15 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ![Footer](plantplates/static/images/README/footer.png)
 
 - The footer is present through the website and stays the same with the social media icons.
+
+### Modal Messages
+
+![Logged In Modal](plantplates/static/images/README/logged-in-modal.png)
+
+- User sees this when logged in for 2 seconds.
+
+![Logged Out Modal](plantplates/static/images/README/logged-out-modal.png)
+
+- User sees this when logging out for 2 seconds
+
+## Home Page
