@@ -18,6 +18,10 @@
       crossorigin="anonymous"
     ></script>
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
@@ -29,16 +33,22 @@
       <nav>
         <div class="nav-wrapper">
           <a href="{{ url_for('home') }}" class="brand-logo">Plant Plates</a>
+          <!-- Sidenav Trigger -->
+          <a
+            href="#"
+            data-target="mobile-demo"
+            class="sidenav-trigger hide-on-large-only"
+          >
+            <i class="material-icons">menu</i>
+          </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if current_user.is_authenticated %}
-            <!-- Links for logged-in users -->
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
             <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
             <li><a href="{{ url_for('account') }}">Account</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-            <!-- Links for visitors who are not logged in -->
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
             <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
@@ -48,10 +58,20 @@
         </div>
       </nav>
 
+      <!-- Side Nav -->
       <ul class="sidenav" id="mobile-demo">
+        {% if current_user.is_authenticated %}
         <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="">Home</a></li>
-        <li><a href="">Home</a></li>
+        <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
+        <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+        <li><a href="{{ url_for('account') }}">Account</a></li>
+        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        <li><a href="{{ url_for('login') }}">Log In</a></li>
+        {% endif %}
       </ul>
     </header>
 
@@ -62,7 +82,9 @@
         <div class="row">
           <div class="col s12">
             <!-- Left side: copyright -->
-            <span class="left white-text"> &copy; 2025 Plant Plates </span>
+            <span class="left white-text footer-text">
+              &copy; 2025 Plant Plates
+            </span>
 
             <!-- Right side: social icons -->
             <span class="right">

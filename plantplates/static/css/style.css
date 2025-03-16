@@ -15,6 +15,7 @@ main {
 
 .brand-logo {
   margin-left: 10px;
+  font-size: 2rem;
 }
 
 .card-image {
@@ -36,6 +37,42 @@ nav,
 footer {
   background-color: #8e5a5e;
   font-family: "Lora", sans-serif;
+}
+
+/* Hero Section Styling */
+.hero {
+  position: relative;
+  background: url('{{ url_for("static", filename="/images/home-page-image.jpg") }}')
+    no-repeat center center;
+  background-size: cover;
+  height: 50vh; /* 50% of viewport height */
+  width: 100%;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* 40% opacity black overlay */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Ensures it sits above the overlay */
+  color: #fff;
+  text-align: center;
+  padding-top: 20vh; /* Adjusted for 50vh height; tweak as needed for vertical centering */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
 }
 
 .ethos-card-1,
@@ -67,8 +104,13 @@ p {
   border-radius: 10px;
 }
 
+.footer-text {
+  font-size: 2rem;
+}
+
 .footer-icons {
   padding: 20px;
+  font-size: 2rem;
 }
 
 .footer-icons a {

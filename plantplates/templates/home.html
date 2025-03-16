@@ -1,105 +1,109 @@
 {% extends "base.html" %} {% block content %}
 
-<h1 class="home-heading center-align">Welcome to Plant Plates</h1>
-
-<body>
-  <!-- Ethos Section -->
-  <!-- Parallax Header for Ethos -->
-  <div class="parallax-container hero-image" style="height: 500px">
-    <div class="parallax">
-      <img
-        src="{{ url_for('static', filename='images/plant-plates-logo.webp') }}"
-        alt="Ethos Background"
-      />
-    </div>
-    <div class="container"></div>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Welcome to Plant Plates</h1>
+    <p>Your one-stop destination for delicious plant-based recipes</p>
   </div>
+</section>
 
-  <!-- Ethos Content Cards -->
-  <div class="section">
-    <div class="row">
-      <!-- Example Ethos Card 1 -->
-      <div class="col s12 m4">
-        <div class="card ethos-card-1">
-          <div class="card-content center-align">
-            <span class="card-title">Share Your Culinary Journey</span>
-            <p>
-              At Plant Plates, we believe that food is best enjoyed when shared.
-              Our platform is built on the idea of community, where every recipe
-              and tip is a chance to connect with others. Sharing your favorite
-              plant-based recipes not only celebrates your unique culinary style
-              but also inspires others to try new flavors and techniques. We
-              encourage you to post your creations, exchange ideas, and learn
-              from fellow food enthusiasts.
-            </p>
-          </div>
+<!-- Ethos Content Cards -->
+<div class="section">
+  <div class="row">
+    <!-- Example Ethos Card 1 -->
+    <div class="col s12 m4">
+      <div class="card ethos-card-1">
+        <div class="card-content center-align">
+          <span class="card-title">Share Your Culinary Journey</span>
+          <p>
+            At Plant Plates, we believe that food is best enjoyed when shared.
+            Our platform is built on the idea of community, where every recipe
+            and tip is a chance to connect with others. Sharing your favorite
+            plant-based recipes not only celebrates your unique culinary style
+            but also inspires others to try new flavors and techniques. We
+            encourage you to post your creations, exchange ideas, and learn from
+            fellow food enthusiasts.
+          </p>
         </div>
       </div>
-      <!-- Example Ethos Card 2 -->
-      <div class="col s12 m4">
-        <div class="card ethos-card-2">
-          <div class="card-content center-align">
-            <span class="card-title">A Lifestyle of Wellness</span>
-            <p>
-              We believe that healthy living is not just about exercise—it's a
-              holistic journey that includes the food you eat. Our recipes
-              promote balanced nutrition to help you maintain a strong body and
-              a vibrant mind. Whether you're an athlete or simply passionate
-              about wellness, our platform offers delicious, plant-powered meals
-              that make it easier to lead a life of fitness and health.
-            </p>
-          </div>
+    </div>
+    <!-- Example Ethos Card 2 -->
+    <div class="col s12 m4">
+      <div class="card ethos-card-2">
+        <div class="card-content center-align">
+          <span class="card-title">A Lifestyle of Wellness</span>
+          <p>
+            We believe that healthy living is not just about exercise—it's a
+            holistic journey that includes the food you eat. Our recipes promote
+            balanced nutrition to help you maintain a strong body and a vibrant
+            mind. Whether you're an athlete or simply passionate about wellness,
+            our platform offers delicious, plant-powered meals that make it
+            easier to lead a life of fitness and health.
+          </p>
         </div>
       </div>
-      <!-- Example Ethos Card 3 -->
-      <div class="col s12 m4">
-        <div class="card ethos-card-3">
-          <div class="card-content center-align">
-            <span class="card-title">Deliciously Inspiring Flavors</span>
-            <p>
-              Healthy food should never be bland. At Plant Plates, we’re
-              passionate about crafting recipes that are as tasty as they are
-              nutritious. Every dish is a fusion of vibrant flavors, innovative
-              techniques, and the freshest ingredients to create meals that
-              delight your senses. Our recipes prove that plant-based cuisine
-              can be indulgent, exciting, and absolutely delicious..
-            </p>
-          </div>
+    </div>
+    <!-- Example Ethos Card 3 -->
+    <div class="col s12 m4">
+      <div class="card ethos-card-3">
+        <div class="card-content center-align">
+          <span class="card-title">Deliciously Inspiring Flavors</span>
+          <p>
+            Healthy food should never be bland. At Plant Plates, we’re
+            passionate about crafting recipes that are as tasty as they are
+            nutritious. Every dish is a fusion of vibrant flavors, innovative
+            techniques, and the freshest ingredients to create meals that
+            delight your senses. Our recipes prove that plant-based cuisine can
+            be indulgent, exciting, and absolutely delicious..
+          </p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <h2 class="center-align">Latest and Greatest</h2>
-    <div class="row">
-      {% for recipe in latest_recipes %}
-      <div class="col s12 m6">
-        <div class="card medium">
-          <div class="card-image">
-            {% if recipe.image_url %}
-            <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}" />
-            {% else %}
-            <img
-              src="{{ url_for('static', filename='placeholder.png') }}"
-              alt="No Image Available"
-            />
-            {% endif %}
-            <span class="card-title">{{ recipe.title }}</span>
-          </div>
-          <div class="card-content">
-            <p>{{ recipe.summary or "No summary available." }}</p>
-          </div>
-          <div class="card-action">
-            <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"
-              >View Recipe</a
-            >
-          </div>
+<!-- Ethos Section -->
+<!-- Parallax Header for Ethos -->
+<div class="parallax-container hero-image" style="height: 500px">
+  <div class="parallax">
+    <img
+      src="{{ url_for('static', filename='images/plant-plates-logo.webp') }}"
+      alt="Ethos Background"
+    />
+  </div>
+  <div class="container"></div>
+</div>
+
+<div class="container">
+  <h2 class="center-align">Latest and Greatest</h2>
+  <div class="row">
+    {% for recipe in latest_recipes %}
+    <div class="col s12 m6">
+      <div class="card medium">
+        <div class="card-image">
+          {% if recipe.image_url %}
+          <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}" />
+          {% else %}
+          <img
+            src="{{ url_for('static', filename='placeholder.png') }}"
+            alt="No Image Available"
+          />
+          {% endif %}
+          <span class="card-title">{{ recipe.title }}</span>
+        </div>
+        <div class="card-content">
+          <p>{{ recipe.summary or "No summary available." }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"
+            >View Recipe</a
+          >
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
+</div>
 
-  {% endblock %}
-</body>
+{% endblock %}
