@@ -92,3 +92,29 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 #### Desktop Wireframe
 
 ![Desktop Wireframe](plantplates/static/images/README/desktop-wireframes.png)
+
+# Features
+
+## All Page Features
+
+### Navigation Bar
+
+![Before use has logged in on desktop and tablet](plantplates/static/images/README/tablet-desktop-navbar.png)
+
+- This is what the nav bar looks like before the user has logged in on a desktop.
+
+![Before user has logged in on mobile](plantplates/static/images/README/mobile-navbar.png)
+
+- This is what the nav bar looks like before the user logs in on a mobile.
+
+![After nav bar desktop-tablet](plantplates/static/images/README/tablet-desktop-after-log-in.png)
+
+![After nav bar mobile](plantplates/static/images/README/mobile-after-log-in.png)
+
+- This is what the user has once logged in.
+
+### Footer
+
+![Footer](plantplates/static/images/README/footer.png)
+
+- The footer is present through the website and stays the same with the social media icons.
