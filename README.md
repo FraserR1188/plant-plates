@@ -80,3 +80,5 @@ The fonts which I have picked are Lora and Playfair Display. I will use Lora for
 Since it is a recipe website, I'm going to keep most of the images centered around the food. Most images will be posted by the users through the creation of recipes. Articles can also have images which will be posted through the same way as recipes.
 
 ### Wireframes
+
+![Mobile Wireframe](plantplates/static/images/README/mobile-wireframes.png)
