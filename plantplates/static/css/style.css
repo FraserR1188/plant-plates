@@ -39,6 +39,10 @@ footer {
   font-family: "Lora", sans-serif;
 }
 
+.page-footer {
+  background-color: #8e5a5e;
+}
+
 /* Hero Section Container */
 .hero {
   position: relative;
