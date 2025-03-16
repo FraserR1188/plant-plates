@@ -47,7 +47,6 @@ def login():
         if user and user.check_password(password):
             # Valid credentials
             login_user(user)
-            flash("Logged in successfully!", "success")
             return redirect(url_for('account'))
         else:
             # Invalid credentials
@@ -220,7 +219,7 @@ def recipe_detail(recipe_id):
 @login_required
 def logout():
     logout_user()
-    flash("You have been logged out.", "info")
+    flash("You have recently logged out.")
     return redirect(url_for('home'))
 
 

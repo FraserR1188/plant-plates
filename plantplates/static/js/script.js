@@ -17,3 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".sidenav");
   var instances = M.Sidenav.init(elems);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var modalElem = document.getElementById("login-success-modal");
+  var modalInstance = M.Modal.init(modalElem);
+  modalInstance.open();
+  setTimeout(function () {
+    modalInstance.close();
+  }, 2000);
+});

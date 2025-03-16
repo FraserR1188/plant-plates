@@ -81,4 +81,14 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ### Wireframes
 
+#### Mobile Wireframe
+
 ![Mobile Wireframe](plantplates/static/images/README/mobile-wireframes.png)
+
+#### Tablet Wireframe
+
+![Tablet Wireframe](plantplates/static/images/README/tablet-wireframes.png)
+
+#### Desktop Wireframe
+
+![Desktop Wireframe](plantplates/static/images/README/desktop-wireframes.png)

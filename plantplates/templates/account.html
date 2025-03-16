@@ -1,5 +1,4 @@
 {% extends "base.html" %} {% block content %}
-
 <div class="container" style="margin-top: 50px">
   <h3>Account Page</h3>
   <!-- Display the user's name if available, otherwise fallback to email -->
@@ -42,4 +41,14 @@
   >
 </div>
 
-{% endblock %}
+<!-- Login Success Modal -->
+<div id="login-success-modal" class="modal">
+  <div class="modal-content center-align">
+    <h4>Success!</h4>
+    <p>Logged in successfully!</p>
+  </div>
+</div>
+
+<!-- Modal Trigger Script: Only open if a success flash message exists -->
+{% with messages = get_flashed_messages(category_filter=['success']) %} {% if
+messages %} {% endif %} {% endwith %} {% endblock %}
