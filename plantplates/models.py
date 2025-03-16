@@ -70,15 +70,15 @@ class Recipe(db.Model):
         nullable=True)
 
     title = db.Column(db.String(255), nullable=False)
-    image_url = db.Column(db.String(500))
-    seasonal = db.Column(db.String(50))
+    image_url = db.Column(db.String(500), nullable=False)
+    seasonal = db.Column(db.String(50), nullable=True)
     total_time = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    steps_to_prepare = db.Column(db.Text)
-    summary = db.Column(db.Text)
-    yield_ = db.Column(db.Integer)
+    steps_to_prepare = db.Column(db.Text, nullable=False)
+    summary = db.Column(db.Text, nullable=False)
+    yield_ = db.Column(db.Integer, nullable=True)
     ingredients = db.Column(db.Text, nullable=False)
-    calories = db.Column(db.Integer)
+    calories = db.Column(db.Integer, nullable=True)
 
     # Relationships
     author = db.relationship('User', back_populates='recipes')

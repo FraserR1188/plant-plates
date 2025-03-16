@@ -168,6 +168,11 @@ p {
   margin-bottom: 50px;
 }
 
+.recipe-author {
+  font-size: 1.2rem;
+  color: #c0a997;
+}
+
 /* Adjust container height on smaller screens */
 @media (max-width: 768px) {
   .parallax-container {

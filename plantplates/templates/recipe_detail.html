@@ -1,7 +1,12 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container recipe-detail">
-  <h3 class="recipe-title">{{ recipe.title }}</h3>
+  <div class="section">
+    <h3>{{ recipe.title }}</h3>
+    <p class="recipe-author">
+      by {{ recipe.author.name or recipe.author.email }}
+    </p>
+  </div>
 
   <!-- Recipe Image -->
   {% if recipe.image_url %}
