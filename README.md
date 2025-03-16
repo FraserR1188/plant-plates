@@ -130,3 +130,25 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 - User sees this when logging out for 2 seconds
 
 ## Home Page
+
+### Hero Image
+
+![Homepage Hero Image](plantplates/static/images/README/home-hero-image.png)
+
+- This is situated right underneath the nav-bar with the title of the website within it and an indication of what the website is about.
+
+![Website Values](plantplates/static/images/README/home-what-the-site-is.png)
+
+- These are the values of the website.
+
+![Recently Added](plantplates/static/images/README/latest-greatest.png)
+
+- These are the most recently added recipes to the website. Everyone can see these, the user doesn't have to be logged in. Maximum of 4 will be shown.
+
+![Plant Plates Image](plantplates/static/images/README/home-parrallex.png)
+
+- This is the parallex which utilises Materilezes JavaScript Parallex feature.
+
+![Our Store](plantplates/static/images/README/home-story.png)
+
+- This section is about the website owners and there aim through the website.
