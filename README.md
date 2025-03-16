@@ -69,7 +69,7 @@ We want the design to homely but modern with very sleek kitchen feel. This is a 
 
 ### Colour
 
-[insert colour scheme here]
+![Colour Scheme](plantplates/static/images/README/colour-scheme.png)
 
 ### Typography
 
