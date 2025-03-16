@@ -66,3 +66,15 @@ p {
 .hero-image {
   border-radius: 10px;
 }
+
+.footer-icons {
+  padding: 20px;
+}
+
+.footer-icons a {
+  margin-left: 15px;
+}
+
+.footer-icons a:first-child {
+  margin-left: 0;
+}
