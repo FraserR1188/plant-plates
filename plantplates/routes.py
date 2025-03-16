@@ -219,8 +219,8 @@ def recipe_detail(recipe_id):
 @login_required
 def logout():
     logout_user()
-    flash("You have recently logged out.")
-    return redirect(url_for('home'))
+    flash("Logged out successfully!", "logout")
+    return redirect(url_for('home', logout='true'))
 
 
 @app.route('/protected')

@@ -140,4 +140,12 @@
   </div>
 </section>
 
-{% endblock %}
+<!-- Logout Success Modal -->
+<div id="logout-success-modal" class="modal">
+  <div class="modal-content center-align">
+    <h4>Goodbye!</h4>
+    <p>You have been logged out successfully!</p>
+  </div>
+</div>
+{% with messages = get_flashed_messages(category_filter=['info']) %} {% if
+messages %} {% endif %} {% endwith %} {% endblock %}
