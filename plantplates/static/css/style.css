@@ -147,6 +147,25 @@ p {
   border-radius: 10px;
 }
 
+.parallax-container {
+  position: relative;
+  height: 50vh; /* 50% of the viewport height on larger screens */
+  overflow: hidden;
+}
+
+.parallax-container .parallax img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+/* Adjust container height on smaller screens */
+@media (max-width: 768px) {
+  .parallax-container {
+    height: 30vh;
+  }
+}
+
 .footer-text {
   font-size: 2rem;
 }
