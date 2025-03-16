@@ -39,40 +39,41 @@ footer {
   font-family: "Lora", sans-serif;
 }
 
-/* Hero Section Styling */
+/* Hero Section Container */
 .hero {
   position: relative;
-  background: url('{{ url_for("static", filename="/images/home-page-image.jpg") }}')
-    no-repeat center center;
-  background-size: cover;
-  height: 50vh; /* 50% of viewport height */
+  height: 50vh; /* 50% of the viewport height */
   width: 100%;
+  overflow: hidden;
 }
 
+/* Hero Image */
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+/* Overlay for Transparency */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4); /* 40% opacity black overlay */
+  background: rgba(0, 0, 0, 0.4); /* 40% opaque black overlay */
 }
 
+/* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 1; /* Ensures it sits above the overlay */
-  color: #fff;
+  z-index: 1;
   text-align: center;
-  padding-top: 20vh; /* Adjusted for 50vh height; tweak as needed for vertical centering */
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.hero-content p {
-  font-size: 1.5rem;
+  color: #fff;
+  padding-top: 15vh; /* Adjust to center the text vertically as needed */
 }
 
 .ethos-card-1,
@@ -92,8 +93,50 @@ footer {
   color: #8e5a5e;
 }
 
+.our-story {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.story-content {
+  flex: 1 1 50%;
+  padding-right: 20px;
+}
+
+.story-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.story-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* optional: rounds the corners */
+}
+
+/* Responsive: Stack vertically on smaller screens */
+@media (max-width: 768px) {
+  .our-story {
+    flex-direction: column;
+    text-align: center;
+  }
+  .story-content,
+  .story-image {
+    flex: 1 1 100%;
+    padding: 0;
+  }
+  .story-content {
+    margin-bottom: 20px;
+  }
+}
+
 p {
   font-family: "Playfair Display", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .card-title {

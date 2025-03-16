@@ -1,6 +1,11 @@
 {% extends "base.html" %} {% block content %}
 
 <section class="hero">
+  <img
+    src="{{ url_for('static', filename='images/home-page-image.jpg') }}"
+    alt="Home Page Image"
+    class="hero-img"
+  />
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Welcome to Plant Plates</h1>
@@ -63,18 +68,6 @@
   </div>
 </div>
 
-<!-- Ethos Section -->
-<!-- Parallax Header for Ethos -->
-<div class="parallax-container hero-image" style="height: 500px">
-  <div class="parallax">
-    <img
-      src="{{ url_for('static', filename='images/plant-plates-logo.webp') }}"
-      alt="Ethos Background"
-    />
-  </div>
-  <div class="container"></div>
-</div>
-
 <div class="container">
   <h2 class="center-align">Latest and Greatest</h2>
   <div class="row">
@@ -105,5 +98,46 @@
     {% endfor %}
   </div>
 </div>
+
+<!-- Ethos Section -->
+<!-- Parallax Header for Ethos -->
+<div class="parallax-container hero-image" style="height: 600px">
+  <div class="parallax">
+    <img
+      src="{{ url_for('static', filename='images/plant-plates-logo.webp') }}"
+      alt="Ethos Background"
+    />
+  </div>
+  <div class="container"></div>
+</div>
+
+<section class="our-story">
+  <div class="story-content">
+    <h3>Our Story</h3>
+    <p>
+      Hey there! We’re Robbie & Jocelyn, the food-loving duo behind this site.
+      Our passion for delicious, plant-based cooking and a healthy, active
+      lifestyle brought us here, and we’re so excited to share our favorite
+      vegan recipes with you! Cooking has always been a huge part of our lives.
+      Whether we’re experimenting with bold new flavors, recreating comforting
+      classics, or fueling our bodies with wholesome meals, we believe that good
+      food should nourish both the body and the soul. We created this space to
+      inspire others to explore plant-based eating, whether you're fully vegan,
+      plant-curious, or just looking to add more vibrant, nutrient-packed meals
+      to your routine. From quick weeknight dinners to high-protein meals for
+      fitness lovers, you’ll find recipes that are as satisfying as they are
+      nutritious. We believe in keeping things simple, delicious, and always
+      packed with flavor. So, grab your apron, explore our recipes, and let’s
+      make cooking fun, healthy, and full of joy! Welcome to our kitchen – we’re
+      so glad you’re here! – Robbie & Jocelyn
+    </p>
+  </div>
+  <div class="story-image">
+    <img
+      src="{{ url_for('static', filename='images/story-image.jpeg') }}"
+      alt="Our Story Image"
+    />
+  </div>
+</section>
 
 {% endblock %}
