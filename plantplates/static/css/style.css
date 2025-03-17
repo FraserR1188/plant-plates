@@ -163,7 +163,8 @@ p {
   object-fit: cover; /* Ensures the image covers the container */
 }
 
-.recipe-detail {
+.recipe-detail,
+.create-recipe-container {
   margin-top: 50px;
   margin-bottom: 50px;
 }

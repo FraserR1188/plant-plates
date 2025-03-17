@@ -137,18 +137,48 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 - This is situated right underneath the nav-bar with the title of the website within it and an indication of what the website is about.
 
+### Website Values
+
 ![Website Values](plantplates/static/images/README/home-what-the-site-is.png)
 
 - These are the values of the website.
+
+### Recently Added
 
 ![Recently Added](plantplates/static/images/README/latest-greatest.png)
 
 - These are the most recently added recipes to the website. Everyone can see these, the user doesn't have to be logged in. Maximum of 4 will be shown.
 
+### Plant Plates Logo
+
 ![Plant Plates Image](plantplates/static/images/README/home-parrallex.png)
 
 - This is the parallex which utilises Materilezes JavaScript Parallex feature.
 
-![Our Store](plantplates/static/images/README/home-story.png)
+### The story behind the website
+
+![Our Story](plantplates/static/images/README/home-story.png)
 
 - This section is about the website owners and there aim through the website.
+
+## Login Page
+
+![Login Page](plantplates/static/images/README/login-page.png)
+
+- This is the login page
+
+## Sign Up
+
+![Sign Up](plantplates/static/images/README/sign-up-page.png)
+
+- This is the sign up pge which has a link to the login page incase the user already has an account.
+
+## Account Page
+
+![Account Page](plantplates/static/images/README/account-page.png)
+
+- Once the user has logged in, they are transport to their account page.
+
+## Create a New Recipe Page
+
+![Create Page](plantplates/static/images/README/create-recipe-page.png)
