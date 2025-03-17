@@ -1,4 +1,3 @@
-import os
 import boto3
 from plantplates import app, db
 from plantplates.models import User, Category, Recipe, Review, Article
@@ -98,24 +97,49 @@ def create_recipe():
         # Retrieve form data
         title = request.form.get('title')
         seasonal = request.form.get('seasonal')
-        total_time = request.form.get('total_time')
-        yield_ = request.form.get('yield')
+        # Safely convert total_time
+        total_time_str = request.form.get('total_time')
+        if total_time_str:
+            try:
+                total_time = int(total_time_str)
+            except ValueError:
+                flash("Total time must be a number.", "error")
+                return redirect(url_for('create_recipe'))
+        else:
+            total_time = None  # or 0 if you prefer a default
+        # Safely convert yield_
+        yield_str = request.form.get('yield')
+        if yield_str:
+            try:
+                yield_ = int(yield_str)
+            except ValueError:
+                flash("Yield must be a number.", "error")
+                return redirect(url_for('create_recipe'))
+        else:
+            yield_ = None
+        # Safely convert calories
+        calories_str = request.form.get('calories')
+        if calories_str:
+            try:
+                calories = int(calories_str)
+            except ValueError:
+                flash("Calories must be a number.", "error")
+                return redirect(url_for('create_recipe'))
+        else:
+            calories = None
         ingredients = request.form.get('ingredients')
-        calories = request.form.get('calories')
         steps_to_prepare = request.form.get('steps_to_prepare')
         summary = request.form.get('summary')
-        # Handle the file upload
+        # Handle the file upload (S3 logic unchanged)
         file = request.files.get('image_file')
         image_url = None
         if file and file.filename:
             import uuid
             from werkzeug.utils import secure_filename
-            # Create a unique filename or object key (e.g., with a UUID)
             original_filename = secure_filename(file.filename)
             unique_id = str(uuid.uuid4())
             s3_key = f"recipe_images/{unique_id}_{original_filename}"
 
-            # Upload to S3
             s3_client = boto3.client('s3')
             bucket_name = "plantplates-images"
             s3_client.upload_fileobj(
@@ -126,7 +150,6 @@ def create_recipe():
                     'ContentType': file.content_type
                 }
             )
-            # Construct the image URL (if public is necessary)
             region = "eu-west-2"
             image_url = f"https://{bucket_name}.s3.{region}.amazonaws.com/{s3_key}"
 
@@ -158,12 +181,10 @@ def create_recipe():
 def edit_recipe(recipe_id):
     # Retrieve the recipe from the database
     recipe = Recipe.query.get_or_404(recipe_id)
-    
     # Ensure the current user is the owner
     if recipe.user_id != current_user.id:
         flash("You do not have permission to edit this recipe.", "error")
         return redirect(url_for('my_recipes'))
-    
     if request.method == 'POST':
         # Update the recipe fields from the form
         recipe.title = request.form.get('title')
@@ -174,7 +195,6 @@ def edit_recipe(recipe_id):
         recipe.calories = request.form.get('calories')
         recipe.steps_to_prepare = request.form.get('steps_to_prepare')
         recipe.summary = request.form.get('summary')
-        
         # Handle file upload if a new image is provided
         file = request.files.get('image_file')
         if file and file.filename:
@@ -183,7 +203,6 @@ def edit_recipe(recipe_id):
             original_filename = secure_filename(file.filename)
             unique_id = str(uuid.uuid4())
             s3_key = f"recipe_images/{unique_id}_{original_filename}"
-            
             # Upload to S3 using the same logic as create_recipe
             s3_client = boto3.client('s3')
             bucket_name = "plantplates-images"
@@ -195,16 +214,13 @@ def edit_recipe(recipe_id):
                     'ContentType': file.content_type
                 }
             )
-            # Construct the S3 URL (make sure the region matches your bucket's region)
             region = "eu-west-2"
             image_url = f"https://{bucket_name}.s3.{region}.amazonaws.com/{s3_key}"
             recipe.image_url = image_url  # Update the recipe's image URL
-
         # Commit the changes to the database
         db.session.commit()
         flash("Recipe updated successfully!", "success")
         return redirect(url_for('recipe_detail', recipe_id=recipe.id))
-    
     # For GET requests, render the edit page with the current recipe data
     return render_template('edit_recipe.html', recipe=recipe)
 

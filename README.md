@@ -182,3 +182,5 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ## Create a New Recipe Page
 
 ![Create Page](plantplates/static/images/README/create-recipe-page.png)
+
+- The create a new recipe page has

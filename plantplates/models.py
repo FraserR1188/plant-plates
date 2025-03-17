@@ -70,10 +70,11 @@ class Recipe(db.Model):
         nullable=True)
 
     title = db.Column(db.String(255), nullable=False)
-    image_url = db.Column(db.String(500), nullable=False)
+    image_url = db.Column(db.String(500), nullable=True)
     seasonal = db.Column(db.String(50), nullable=True)
-    total_time = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    total_time = db.Column(db.Integer, nullable=True)
+    created_at = db.Column(
+        db.DateTime, default=datetime.utcnow, nullable=False)
     steps_to_prepare = db.Column(db.Text, nullable=False)
     summary = db.Column(db.Text, nullable=False)
     yield_ = db.Column(db.Integer, nullable=True)
