@@ -183,4 +183,4 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ![Create Page](plantplates/static/images/README/create-recipe-page.png)
 
-- The create a new recipe page has
+- The create a new recipe page has 9 input fields, one being an upload image section which uses AWS for image upload.
