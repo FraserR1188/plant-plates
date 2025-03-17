@@ -179,49 +179,64 @@ def create_recipe():
 @app.route('/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
 @login_required
 def edit_recipe(recipe_id):
-    # Retrieve the recipe from the database
     recipe = Recipe.query.get_or_404(recipe_id)
-    # Ensure the current user is the owner
     if recipe.user_id != current_user.id:
         flash("You do not have permission to edit this recipe.", "error")
         return redirect(url_for('my_recipes'))
+
     if request.method == 'POST':
-        # Update the recipe fields from the form
+        # Simple fields
         recipe.title = request.form.get('title')
         recipe.seasonal = request.form.get('seasonal')
-        recipe.total_time = request.form.get('total_time')
-        recipe.yield_ = request.form.get('yield')
-        recipe.ingredients = request.form.get('ingredients')
-        recipe.calories = request.form.get('calories')
         recipe.steps_to_prepare = request.form.get('steps_to_prepare')
         recipe.summary = request.form.get('summary')
+        recipe.ingredients = request.form.get('ingredients')
+
+        # Safely handle numeric fields
+        # total_time
+        total_time_str = request.form.get('total_time')
+        if total_time_str:
+            try:
+                recipe.total_time = int(total_time_str)
+            except ValueError:
+                flash("Total time must be a number.", "error")
+                return redirect(url_for('edit_recipe', recipe_id=recipe.id))
+        else:
+            recipe.total_time = None  # or 0 if you prefer a default
+
+        # yield_
+        yield_str = request.form.get('yield')
+        if yield_str:
+            try:
+                recipe.yield_ = int(yield_str)
+            except ValueError:
+                flash("Yield must be a number.", "error")
+                return redirect(url_for('edit_recipe', recipe_id=recipe.id))
+        else:
+            recipe.yield_ = None
+
+        # calories
+        calories_str = request.form.get('calories')
+        if calories_str:
+            try:
+                recipe.calories = int(calories_str)
+            except ValueError:
+                flash("Calories must be a number.", "error")
+                return redirect(url_for('edit_recipe', recipe_id=recipe.id))
+        else:
+            recipe.calories = None
+
         # Handle file upload if a new image is provided
         file = request.files.get('image_file')
         if file and file.filename:
-            import uuid
-            from werkzeug.utils import secure_filename
-            original_filename = secure_filename(file.filename)
-            unique_id = str(uuid.uuid4())
-            s3_key = f"recipe_images/{unique_id}_{original_filename}"
-            # Upload to S3 using the same logic as create_recipe
-            s3_client = boto3.client('s3')
-            bucket_name = "plantplates-images"
-            s3_client.upload_fileobj(
-                file,
-                bucket_name,
-                s3_key,
-                ExtraArgs={
-                    'ContentType': file.content_type
-                }
-            )
-            region = "eu-west-2"
-            image_url = f"https://{bucket_name}.s3.{region}.amazonaws.com/{s3_key}"
-            recipe.image_url = image_url  # Update the recipe's image URL
-        # Commit the changes to the database
+            image_url = upload_image_to_s3(file)
+            if image_url:
+                recipe.image_url = image_url
+
         db.session.commit()
         flash("Recipe updated successfully!", "success")
         return redirect(url_for('recipe_detail', recipe_id=recipe.id))
-    # For GET requests, render the edit page with the current recipe data
+
     return render_template('edit_recipe.html', recipe=recipe)
 
 
