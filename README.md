@@ -184,3 +184,33 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ![Create Page](plantplates/static/images/README/create-recipe-page.png)
 
 - The create a new recipe page has 9 input fields, one being an upload image section which uses AWS for image upload.
+
+## Details of Recipe
+
+![Detail Recipe](plantplates/static/images/README/recipe-detail.png)
+
+- This is the what the recipe looks like once created on the users profile.
+
+## Edit the Recipe
+
+![Edit Recipe](plantplates/static/images/README/edit-recipe.png)
+
+- This is the edit/update view of a recipe.
+
+## Delete the Recipe
+
+![Delete Recipe](plantplates/static/images/README/confirm-deletion.png)
+
+- This is the modal in which we can delete a recipe.
+
+## My Recipes
+
+![My Recipe Page](plantplates/static/images/README/my-recipe-page.png)
+
+- This is the where the user stores there own recipes.
+
+## All Recipes
+
+![All recipes](plantplates/static/images/README/all-recipes.png)
+
+- This page is where everyone, iunclusing the user, can access all the recipes created.
