@@ -197,3 +197,7 @@ p {
 .footer-icons a:first-child {
   margin-left: 0;
 }
+
+.table-of-contents a {
+  letter-spacing: 0.4px;
+}
