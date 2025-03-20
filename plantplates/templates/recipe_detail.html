@@ -20,6 +20,10 @@
   {% endif %} {% if recipe.summary %}
   <h5>Summary</h5>
   <p>{{ recipe.summary }}</p>
+  {% endif %} {% if recipe.category %}
+  <p><strong>Category:</strong> {{ recipe.category.name }}</p>
+  {% else %}
+  <p><strong>Category:</strong> N/A</p>
   {% endif %}
 
   <p><strong>Seasonal:</strong> {{ recipe.seasonal or 'N/A' }}</p>

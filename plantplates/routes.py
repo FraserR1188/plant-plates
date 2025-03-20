@@ -369,6 +369,11 @@ def delete_category(category_id):
 @app.route('/category/<int:category_id>')
 def category_detail(category_id):
     category = Category.query.get_or_404(category_id)
-    # Get all recipes in that category
     recipes = Recipe.query.filter_by(category_id=category.id).all()
     return render_template('category_detail.html', category=category, recipes=recipes)
+
+
+@app.route('/categories')
+def categories_list():
+    categories = Category.query.all()
+    return render_template('categories_list.html', categories=categories)
