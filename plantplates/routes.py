@@ -5,6 +5,7 @@ from flask import render_template, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
 from plantplates.decorators import admin_required  # import the decorator
 
+
 s3_client = boto3.client('s3')
 
 
@@ -71,8 +72,7 @@ def signup():
 
         new_user = User(
             email=email,
-            name=name,
-            is_admin=(email == "fraserrobbie2@gmail.com")  # if it matches, True
+            name=name
         )
         # Ensure your User model has set_password defined
         new_user.set_password(password)
