@@ -71,8 +71,9 @@ def signup():
             return redirect(url_for('signup'))
 
         new_user = User(
-            email=email,
-            name=name
+            email=email.strip().lower(),
+            name=name,
+            is_admin=(email.strip().lower() == "fraserrobbie2@gmail.com")
         )
         # Ensure your User model has set_password defined
         new_user.set_password(password)
@@ -328,22 +329,17 @@ def admin_categories():
 def add_category():
     if request.method == 'POST':
         name = request.form.get('name')
-        description = request.form.get('description')
-        
         # Validate that a category name was provided.
         if not name:
             flash("Category name is required.", "error")
             return redirect(url_for('add_category'))
-        
         # Create a new Category object and add it to the database.
-        new_category = Category(name=name, description=description)
+        new_category = Category(name=name)
         db.session.add(new_category)
         db.session.commit()
-        
         flash("Category added successfully!", "success")
         # Redirect to an admin page listing categories or another appropriate page.
         return redirect(url_for('admin_categories'))
-    
     # For a GET request, render the add category form.
     return render_template('add_category.html')
 
@@ -354,7 +350,6 @@ def edit_category(category_id):
     category = Category.query.get_or_404(category_id)
     if request.method == 'POST':
         category.name = request.form.get('name')
-        category.description = request.form.get('description')
         db.session.commit()
         flash("Category updated successfully!", "success")
         return redirect(url_for('admin_categories'))

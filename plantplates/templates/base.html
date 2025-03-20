@@ -46,6 +46,7 @@
             <li>
               <a href="{{ url_for('admin_categories') }}">Manage Categories</a>
             </li>
+            <li><a href="{{ url_for('add_category') }}">Add Category</a></li>
             {% endif %} {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
@@ -82,6 +83,8 @@
         {% endif %}
       </ul>
     </header>
+    <p>Admin flag: {{ current_user.is_admin }}</p>
+    <!-- Delete this before release ^^-->
 
     <main class="container">{% block content %} {% endblock %}</main>
 
