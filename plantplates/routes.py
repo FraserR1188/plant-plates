@@ -3,6 +3,7 @@ from plantplates import app, db
 from plantplates.models import User, Category, Recipe, Review, Article
 from flask import render_template, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
+from plantplates.decorators import admin_required  # import the decorator
 
 s3_client = boto3.client('s3')
 
@@ -68,8 +69,11 @@ def signup():
             flash("A user with that email already exists.", "error")
             return redirect(url_for('signup'))
 
-        # Create a new user and hash the password
-        new_user = User(email=email, name=name)
+        new_user = User(
+            email=email,
+            name=name,
+            is_admin=(email == "fraserrobbie2@gmail.com")  # if it matches, True
+        )
         # Ensure your User model has set_password defined
         new_user.set_password(password)
 
@@ -130,6 +134,14 @@ def create_recipe():
         ingredients = request.form.get('ingredients')
         steps_to_prepare = request.form.get('steps_to_prepare')
         summary = request.form.get('summary')
+        
+        # Retrieve category selection (drop-down)
+        category_id_str = request.form.get('category_id')
+        try:
+            category_id = int(category_id_str) if category_id_str else None
+        except ValueError:
+            category_id = None
+
         # Handle the file upload (S3 logic unchanged)
         file = request.files.get('image_file')
         image_url = None
@@ -164,7 +176,8 @@ def create_recipe():
             calories=calories,
             steps_to_prepare=steps_to_prepare,
             summary=summary,
-            user_id=current_user.id
+            user_id=current_user.id,
+            category_id=category_id
         )
         # Save the new recipe to the database
         db.session.add(new_recipe)
@@ -172,8 +185,10 @@ def create_recipe():
 
         flash("Recipe created successfully!", "success")
         return redirect(url_for('my_recipes'))
-    # GET request: Render the create recipe page
-    return render_template('create_recipe.html')
+    else:
+        # For GET request, fetch all categories for the drop-down
+        categories = Category.query.all()
+        return render_template('create_recipe.html', categories=categories)
 
 
 @app.route('/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
@@ -225,6 +240,14 @@ def edit_recipe(recipe_id):
                 return redirect(url_for('edit_recipe', recipe_id=recipe.id))
         else:
             recipe.calories = None
+        
+        # Update category selection from drop-down
+        category_id_str = request.form.get('category_id')
+        try:
+            recipe.category_id = int(
+                category_id_str) if category_id_str else None
+        except ValueError:
+            recipe.category_id = None
 
         # Handle file upload if a new image is provided
         file = request.files.get('image_file')
@@ -236,8 +259,11 @@ def edit_recipe(recipe_id):
         db.session.commit()
         flash("Recipe updated successfully!", "success")
         return redirect(url_for('recipe_detail', recipe_id=recipe.id))
-
-    return render_template('edit_recipe.html', recipe=recipe)
+    else:
+        # For GET, fetch all categories for the drop-down
+        categories = Category.query.all()
+        return render_template(
+            'edit_recipe.html', recipe=recipe, categories=categories)
 
 
 @app.route('/recipe/<int:recipe_id>/delete', methods=['POST'])
@@ -288,3 +314,66 @@ def all_recipes():
     # Query all recipes in the database
     recipes = Recipe.query.all()
     return render_template('all_recipes.html', recipes=recipes)
+
+
+@app.route('/admin/categories')
+@admin_required
+def admin_categories():
+    categories = Category.query.all()
+    return render_template('admin_categories.html', categories=categories)
+
+
+@app.route('/admin/categories/add', methods=['GET', 'POST'])
+@admin_required
+def add_category():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        description = request.form.get('description')
+        
+        # Validate that a category name was provided.
+        if not name:
+            flash("Category name is required.", "error")
+            return redirect(url_for('add_category'))
+        
+        # Create a new Category object and add it to the database.
+        new_category = Category(name=name, description=description)
+        db.session.add(new_category)
+        db.session.commit()
+        
+        flash("Category added successfully!", "success")
+        # Redirect to an admin page listing categories or another appropriate page.
+        return redirect(url_for('admin_categories'))
+    
+    # For a GET request, render the add category form.
+    return render_template('add_category.html')
+
+
+@app.route('/admin/categories/<int:category_id>/edit', methods=['GET', 'POST'])
+@admin_required
+def edit_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    if request.method == 'POST':
+        category.name = request.form.get('name')
+        category.description = request.form.get('description')
+        db.session.commit()
+        flash("Category updated successfully!", "success")
+        return redirect(url_for('admin_categories'))
+    return render_template('edit_category.html', category=category)
+
+
+@app.route('/admin/categories/<int:category_id>/delete', methods=['POST'])
+@admin_required
+def delete_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    db.session.delete(category)
+    db.session.commit()
+    flash("Category deleted successfully!", "success")
+    return redirect(url_for('admin_categories'))
+
+
+@app.route('/category/<int:category_id>')
+def category_detail(category_id):
+    category = Category.query.get_or_404(category_id)
+    # Get all recipes in that category
+    recipes = Recipe.query.filter_by(category_id=category.id).all()
+    return render_template('category_detail.html', category=category, recipes=recipes)

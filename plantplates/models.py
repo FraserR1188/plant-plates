@@ -14,8 +14,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(25), unique=True, nullable=False)
     name = db.Column(db.String(25), nullable=False)
-    age = db.Column(db.Integer)
     password_hash = db.Column(db.String(255), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
 
     def set_password(self, password):
         """Hashes a plaintext password and stores it."""
@@ -45,10 +45,10 @@ class User(db.Model, UserMixin):
 # ------------------------------
 class Category(db.Model):
     __tablename__ = 'categories'
-
     id = db.Column(db.BigInteger, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
 
+    # Relationship: one category can have many recipes
     recipes = db.relationship('Recipe', back_populates='category')
 
     def __repr__(self):

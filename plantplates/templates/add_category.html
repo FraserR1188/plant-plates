@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}
+<div class="container" style="margin-top: 50px">
+  <h3>Add a New Category</h3>
+  <form method="POST" action="{{ url_for('add_category') }}">
+    <div class="input-field">
+      <input type="text" name="name" id="name" required />
+      <label for="name">Category Name</label>
+    </div>
+    <div class="input-field">
+      <textarea
+        class="materialize-textarea"
+        name="description"
+        id="description"
+      ></textarea>
+      <label for="description">Description (optional)</label>
+    </div>
+    <button type="submit" class="btn waves-effect waves-light">
+      Add Category
+    </button>
+  </form>
+</div>
+{% endblock %}

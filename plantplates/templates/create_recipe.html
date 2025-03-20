@@ -52,6 +52,19 @@
       <label for="seasonal">Seasonal</label>
     </div>
 
+    <div class="input-field">
+      <select name="category_id">
+        <option value="" disabled selected>Choose your category</option>
+        {% for category in categories %} {% if recipe and recipe.category_id ==
+        category.id %}
+        <option value="{{ category.id }}" selected>{{ category.name }}</option>
+        {% else %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endif %} {% endfor %}
+      </select>
+      <label>Category</label>
+    </div>
+
     <!-- Total Time -->
     <div class="input-field">
       <input id="total_time" type="number" name="total_time" min="0" />
