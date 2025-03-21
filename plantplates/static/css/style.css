@@ -245,7 +245,7 @@ p {
   .btn {
     font-size: 0.9rem;
     width: 100%;
-    padding: 10px;
+    margin: 10px;
   }
   /* Modals (e.g., deletion confirmation or flash message dialogs) */
   .modal {
@@ -287,7 +287,6 @@ p {
   .btn {
     font-size: 1rem;
     width: auto;
-    padding: 10px 15px;
   }
   .modal {
     width: 80%;
@@ -327,7 +326,6 @@ p {
   }
   .btn {
     font-size: 1.05rem;
-    padding: 10px 20px;
   }
   .modal {
     width: 70%;
@@ -367,7 +365,6 @@ p {
   }
   .btn {
     font-size: 1.1rem;
-    padding: 12px 20px;
   }
   .modal {
     width: 60%;
@@ -383,12 +380,6 @@ p {
   .container {
     margin-top: 60px;
     padding: 0 30px;
-  }
-  h1,
-  h2,
-  h3,
-  .brand-logo {
-    font-size: 2.2rem;
   }
   p,
   .card-content p,
@@ -407,7 +398,6 @@ p {
   }
   .btn {
     font-size: 1.2rem;
-    padding: 12px 25px;
   }
   .modal {
     width: 50%;

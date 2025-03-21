@@ -10,11 +10,7 @@
 
   <!-- Recipe Image -->
   {% if recipe.image_url %}
-  <img
-    src="{{ recipe.image_url }}"
-    alt="Recipe Image"
-    style="max-width: 400px"
-  />
+  <img src="{{ recipe.image_url }}" alt="Recipe Image" style="max-width: 70%" />
   {% else %}
   <p>No image uploaded.</p>
   {% endif %} {% if recipe.summary %}
