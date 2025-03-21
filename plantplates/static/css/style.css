@@ -197,3 +197,220 @@ p {
 .footer-icons a:first-child {
   margin-left: 0;
 }
+
+.delete-category-modal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* --- Global Media Queries for the Entire Project --- */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .container {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+  h1,
+  h2,
+  h3,
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+  nav .brand-logo {
+    font-size: 1.5rem;
+  }
+  p,
+  .card-content p,
+  .card-title,
+  .secondary-content {
+    font-size: 0.9rem;
+  }
+  /* Recipe cards, hero images, and other image containers */
+  .card-image {
+    height: 150px !important;
+  }
+  /* Form elements on pages like Create Recipe and Add Category */
+  .input-field input,
+  .input-field label,
+  .materialize-textarea,
+  .file-path {
+    font-size: 0.9rem;
+  }
+  /* Buttons (full-width on very small screens) */
+  .btn {
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 10px;
+  }
+  /* Modals (e.g., deletion confirmation or flash message dialogs) */
+  .modal {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    font-size: 1rem;
+  }
+  .container {
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+  h1,
+  h2,
+  h3,
+  .brand-logo {
+    font-size: 1.7rem;
+  }
+  p,
+  .card-content p,
+  .card-title,
+  .secondary-content {
+    font-size: 1rem;
+  }
+  .card-image {
+    height: 170px !important;
+  }
+  .input-field input,
+  .input-field label,
+  .materialize-textarea,
+  .file-path {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
+    width: auto;
+    padding: 10px 15px;
+  }
+  .modal {
+    width: 80%;
+    max-width: 450px;
+  }
+}
+
+/* Medium devices (tablets, 768px to 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    font-size: 1rem;
+  }
+  .container {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+  h1,
+  h2,
+  h3,
+  .brand-logo {
+    font-size: 1.8rem;
+  }
+  p,
+  .card-content p,
+  .card-title,
+  .secondary-content {
+    font-size: 1.05rem;
+  }
+  .card-image {
+    height: 180px !important;
+  }
+  .input-field input,
+  .input-field label,
+  .materialize-textarea,
+  .file-path {
+    font-size: 1.05rem;
+  }
+  .btn {
+    font-size: 1.05rem;
+    padding: 10px 20px;
+  }
+  .modal {
+    width: 70%;
+    max-width: 500px;
+  }
+}
+
+/* Large devices (desktops, 992px to 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  body {
+    font-size: 1.05rem;
+  }
+  .container {
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+  h1,
+  h2,
+  h3,
+  .brand-logo {
+    font-size: 2rem;
+  }
+  p,
+  .card-content p,
+  .card-title,
+  .secondary-content {
+    font-size: 1.1rem;
+  }
+  .card-image {
+    height: 200px !important;
+  }
+  .input-field input,
+  .input-field label,
+  .materialize-textarea,
+  .file-path {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+  }
+  .modal {
+    width: 60%;
+    max-width: 550px;
+  }
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.1rem;
+  }
+  .container {
+    margin-top: 60px;
+    padding: 0 30px;
+  }
+  h1,
+  h2,
+  h3,
+  .brand-logo {
+    font-size: 2.2rem;
+  }
+  p,
+  .card-content p,
+  .card-title,
+  .secondary-content {
+    font-size: 1.2rem;
+  }
+  .card-image {
+    height: 220px !important;
+  }
+  .input-field input,
+  .input-field label,
+  .materialize-textarea,
+  .file-path {
+    font-size: 1.2rem;
+  }
+  .btn {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+  }
+  .modal {
+    width: 50%;
+    max-width: 600px;
+  }
+}

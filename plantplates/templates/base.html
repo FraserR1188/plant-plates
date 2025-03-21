@@ -57,6 +57,7 @@
             {% else %}
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+            <li><a href="{{ url_for('categories_list') }}">Categories</a></li>
             <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             {% endif %}
@@ -70,22 +71,24 @@
         <li>
           <a href="{{ url_for('admin_categories') }}">Manage Categories</a>
         </li>
-        {% endif %} {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('add_category') }}">Add Category</a></li>
+        <li>{% endif %} {% if current_user.is_authenticated %}</li>
+
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('my_recipes') }}">My Recipes</a></li>
         <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+        <li><a href="{{ url_for('categories_list') }}">Categories</a></li>
         <li><a href="{{ url_for('account') }}">Account</a></li>
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else %}
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+        <li><a href="{{ url_for('categories_list') }}">Categories</a></li>
         <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
         <li><a href="{{ url_for('login') }}">Log In</a></li>
         {% endif %}
       </ul>
     </header>
-    <p>Admin flag: {{ current_user.is_admin }}</p>
-    <!-- Delete this before release ^^-->
 
     <main class="container">{% block content %} {% endblock %}</main>
 
