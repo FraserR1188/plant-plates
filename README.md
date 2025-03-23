@@ -113,6 +113,11 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 - This is what the user has once logged in.
 
+- I have also made myself an admin which has the ability to manage the catergories (CRUD). This is what the appearence looks:
+
+![Mobile Admin](plantplates/static/images/README/mobile-admin-categories.png)
+![Desktop Admin](plantplates/static/images/README/admin-categories.png)
+
 ### Footer
 
 ![Footer](plantplates/static/images/README/footer.png)
@@ -214,3 +219,37 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ![All recipes](plantplates/static/images/README/all-recipes.png)
 
 - This page is where everyone, iunclusing the user, can access all the recipes created.
+
+## Categories
+
+![Home Page Categories](plantplates/static/images/README/categories-page.png)
+
+- This is the main page for all the categories which are present at the moment
+
+## Category Section
+
+![Category Section](plantplates/static/images/README/category-section.png)
+
+- This is how the recipes are presented in the category section
+
+![No Recipes](plantplates/static/images/README/no-category-present.png)
+
+- This is how it looks when no recipes are present.
+
+## Admin Categories
+
+- Only myself can see these pages
+
+![Admin Categories](plantplates/static/images/README/admin-manage-categories.png)
+
+- This how the admin can edit or delete categories
+
+![Confirm Detele Cateogry](plantplates/static/images/README/confirm-delete-category.png)
+
+- Defensive programming, making sure there is a confirmation delete modal.
+
+![Edit Category](plantplates/static/images/README/edit-category.png)
+
+- This how it looks to edit a category.
+
+![Add Category](plantplates/static/images/README/add-category.png)

@@ -234,6 +234,9 @@ p {
   .secondary-content {
     font-size: 0.9rem;
   }
+  .sub-heading {
+    font-size: 1.1rem;
+  }
   /* Recipe cards, hero images, and other image containers */
   .card-image {
     height: 150px !important;
@@ -279,6 +282,9 @@ p {
   .secondary-content {
     font-size: 1rem;
   }
+  .sub-heading {
+    font-size: 1.3rem;
+  }
   .card-image {
     height: 170px !important;
   }
@@ -319,6 +325,9 @@ p {
   .secondary-content {
     font-size: 1.05rem;
   }
+  .sub-heading {
+    font-size: 1.3rem;
+  }
   .card-image {
     height: 180px !important;
   }
@@ -358,6 +367,9 @@ p {
   .secondary-content {
     font-size: 1.1rem;
   }
+  .sub-heading {
+    font-size: 1.4rem;
+  }
   .card-image {
     height: 200px !important;
   }
@@ -387,7 +399,7 @@ p {
   }
   .card-title,
   .secondary-content {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .card-image {
     height: 220px !important;
