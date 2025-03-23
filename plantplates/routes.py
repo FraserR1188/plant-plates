@@ -4,17 +4,14 @@ from plantplates.models import User, Category, Recipe, Review, Article
 from flask import render_template, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
 from plantplates.decorators import admin_required  # import the decorator
-
-
-s3_client = boto3.client('s3')
-
-
 from flask_login import (
     LoginManager,
     login_user,
     logout_user,
     login_required,
     current_user)
+
+s3_client = boto3.client('s3')
 
 # Initialize db with app
 db.init_app(app)
@@ -135,7 +132,6 @@ def create_recipe():
         ingredients = request.form.get('ingredients')
         steps_to_prepare = request.form.get('steps_to_prepare')
         summary = request.form.get('summary')
-        
         # Retrieve category selection (drop-down)
         category_id_str = request.form.get('category_id')
         try:
@@ -164,7 +160,8 @@ def create_recipe():
                 }
             )
             region = "eu-west-2"
-            image_url = f"https://{bucket_name}.s3.{region}.amazonaws.com/{s3_key}"
+            image_url = f"https://{
+                bucket_name}.s3.{region}.amazonaws.com/{s3_key}"
 
         # Create a new Recipe object associated with the logged-in user
         new_recipe = Recipe(
@@ -241,7 +238,6 @@ def edit_recipe(recipe_id):
                 return redirect(url_for('edit_recipe', recipe_id=recipe.id))
         else:
             recipe.calories = None
-        
         # Update category selection from drop-down
         category_id_str = request.form.get('category_id')
         try:
@@ -338,7 +334,7 @@ def add_category():
         db.session.add(new_category)
         db.session.commit()
         flash("Category added successfully!", "success")
-        # Redirect to an admin page listing categories or another appropriate page.
+        # Redirect to an admin page listing categories.
         return redirect(url_for('admin_categories'))
     # For a GET request, render the add category form.
     return render_template('add_category.html')
@@ -370,7 +366,8 @@ def delete_category(category_id):
 def category_detail(category_id):
     category = Category.query.get_or_404(category_id)
     recipes = Recipe.query.filter_by(category_id=category.id).all()
-    return render_template('category_detail.html', category=category, recipes=recipes)
+    return render_template(
+        'category_detail.html', category=category, recipes=recipes)
 
 
 @app.route('/categories')

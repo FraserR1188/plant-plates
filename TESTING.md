@@ -14,8 +14,24 @@ Plant Plates recipe website has been tested using the following methods:
 
 ![W3C HTML Validator](plantplates/static/images/TESTING/w3c-HTML-validator.png)
 
-## Bugs
+Plant plates website has passed using [W3C HTML Validator](https://validator.w3.org/) tool.
 
-### CSS Error
+### W3C CSS Validator
 
-This CSS error is due to the Materilize CSS framework. This is an error with the actual framework rather than my CSS code and it will not affect the site. I am currently using the CDN version but to override this error I would have to download the CSS locally, make the change and then reference that file.
+![W3C CSS Validator](plantplates/static/images/TESTING/W3C-CSS-Validator.png)
+
+Plant plates website has passed using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) tool.
+
+### JSHint Javascript Code Quality Tool
+
+![JShint](plantplates/static/images/TESTING/jshint.png)
+
+Plant plates website passed using [JSHint](https://jshint.com/) JavaScript Code Quality tool.
+
+### Python Validation using VS Code
+
+![Python Validation](plantplates/static/images/TESTING/python-test.png)
+
+- Plant plates website showed a few errors:
+  - See future features for unused imported modules.
+  - The secure_filname and s3 errors are used throughout the routes.py.
