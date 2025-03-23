@@ -8,8 +8,10 @@
   />
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Welcome to Plant Plates</h1>
-    <p>Your one-stop destination for delicious plant-based recipes</p>
+    <h1 class="hero-text">Welcome to Plant Plates</h1>
+    <p class="hero-text">
+      Your one-stop destination for delicious plant-based recipes
+    </p>
   </div>
 </section>
 
@@ -83,10 +85,9 @@
             alt="No Image Available"
           />
           {% endif %}
-          <span class="card-title">{{ recipe.title }}</span>
         </div>
         <div class="card-content">
-          <p>{{ recipe.summary or "No summary available." }}</p>
+          <p>{{ recipe.title }}</p>
         </div>
         <div class="card-action">
           <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"

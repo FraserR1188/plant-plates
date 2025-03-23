@@ -4970,7 +4970,8 @@ small {
 }
 
 .card .card-image .card-title {
-  color: #fff;
+  color: #4a148c;
+  font-weight: 500;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -5013,11 +5014,12 @@ small {
   a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(
     .btn-floating
   ) {
-  color: #ffab40;
+  color: #626e60;
   margin-right: 24px;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .card

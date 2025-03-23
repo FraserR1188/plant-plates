@@ -76,7 +76,7 @@ footer {
   position: relative;
   z-index: 1;
   text-align: center;
-  color: #fff;
+  color: orange;
   padding-top: 15vh; /* Adjust to center the text vertically as needed */
 }
 
@@ -141,10 +141,6 @@ p {
   font-family: "Playfair Display", sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
-}
-
-.card-title {
-  font-family: "Playfair Display", sans-serif;
 }
 
 .hero-image {
@@ -385,7 +381,7 @@ p {
   .card-content p,
   .card-title,
   .secondary-content {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .card-image {
     height: 220px !important;
