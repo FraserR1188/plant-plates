@@ -92,6 +92,34 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 
 # Testing User Stories
 
+### First time Users
+
+- As a first-time user, I want the website to be accessible on any device.
+  - This has been confirmed through the browser compatibility testing / testing table / peer review.
+- As a first-time user, I want the website to be easy to navigate.
+  -
+- As a first-time user, I want to sign-up quickly and easily.
+- As a first-time user, I want find what recipe I want quickly and easily.
+
+### Returning Users
+
+- As a returning user, I want to be able to login easily on the homepage.
+- As a returning user, I want to be able to create / read / edit / delete my own recipes.
+- As a returning user, I want to be able to search for recipes with keyword criteria, as well as specific recipe criteria e.g. difficulty, cuisine, ingredients, how to cook.
+- As a returning user, I want to see featured / trending recipes on the homepage.
+- As a returning user, I want the website to be accessible on any device.
+- As a returning user, I want the recipe layout to be in an organised list with an image referring to the dish.
+- As a returning user, I would like to have access to social media links.
+- As a returning user, I want the option to have an e-mail newsletter.
+- As a returning user, I want to know more about the owners and their ethos.
+
+### Website Owners
+
+- As a website owner, I want to make the website homely and connected to it's returning users.
+- As a website owner, I want to let all visitors know about the ethos behind the website.
+- As a website owner, I want to be able to create /read / edit / delete cuisines and also give to
+- As a website owner, I want the website to function on all devices and look appealing.
+
 # Manual Testing Table for Plant Plates
 
 | Test Case ID | Feature/Function                            | Test Steps                                                                                                                                                                                                                                            | Expected Outcome                                                                                                                                           | Status (Pass/Fail) | Comments                                      |
