@@ -2,18 +2,18 @@
 
 ## Milestone Project 3 - Backend Development
 
-(This is spacing for the main image once project is complete)
+![Main Image README](plantplates/static/images/README/main-image-readme.png)
 
 - The recipe website is aimed at age 12 onwards to enjoy to cook. The website should bring inspiration and enjoyment through cooking. It should also entice the visitor to prepare something that they did not intend. We want this to be a hub of activity and a place where users will store there recipes and allow other people to view them.
 - This is my Milestone Project 3 submission for Code Institutes Diploma in Web Application Development Course. My website uses both relational and non-relational databases, features full CRUD functionality and is built using technologies that I have learnt including HTML, CSS, JavaScript, Python, Flask and PostgreSQL.
 
 ## Project Link
 
-(Link to the project)
+To access my website please click this [link](https://plant-plates-ebe9caba4f16.herokuapp.com/).
 
 ## Repository
 
-(Link to repo)
+To access to my repository please click [link](https://github.com/FraserR1188/plant-plates)
 
 ## Project Goals
 
@@ -278,11 +278,31 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ### Leaving Reviews
 
-- Another future feature would be to leave reviews on other users recipes and give feedback.
+- Allow users to comment on recipes, offer cooking tips, suggest ingredient substitutions, or ask questions directly on recipe pages.
+- Enable recipe authors to respond to user questions and comments.
 
 ### Ratings
 
-- Leave users a star rating.
+- Users can rate recipes using a 5-star rating system.
+- Display average ratings prominently to help visitors choose popular or highly-rated recipes.
+
+## Enhanced User Profiles
+
+- Users can add profile pictures, biographies, favorite cuisine types, dietary preferences (e.g., gluten-free, nut-free), and cooking skill level.
+- Showcase each user's contributed recipes and articles in their profile.
+
+## Meal Planner and Grocery List Generator
+
+- Users can plan their weekly meals directly on the site by selecting recipes.
+- Automatically generate grocery shopping lists based on planned meals, with printable or downloadable PDF options.
+
+## Nutrition Information and Calculators
+
+- Automatically calculate nutritional data for recipes, including calories, macros (protein, carbs, fats), and vitamins, to help health-conscious users.
+
+## Cooking Mode
+
+- A full-screen, step-by-step cooking mode that simplifies recipe viewing and includes timers and interactive checklists for ingredients and steps.
 
 # Data Model
 
@@ -407,9 +427,9 @@ Click [Here](https://docs.github.com/en/github-ae@latest/get-started/quickstart/
 
 You will need to deploy the application using Heroku.
 
-1. Create a requirements.txt file by typing `pip3 freeze --local > requirements.txt` into the Gitpod CLI. Ensure this is added to your .gitignore file.
-2. Create a Procfile by typing `echo web: python app.py > Procfile`. Open it and ensure it doesn't have a new line, as this can create errors. Ensure it starts with a capital P.
-3. Add and commit these files to Github.
+1. Create a requirements.txt file by typing `pip3 freeze --local > requirements.txt` into the VS Code CLI. Ensure this is added to your .gitignore file.
+2. Create a Procfile by typing `touch python app.py > Procfile`. Open it and ensure it doesn't have a new line, as this can create errors. Ensure it starts with a capital P.
+3. Add and commit these files to GitHub.
 4. Go to [Heroku](https://dashboard.heroku.com/apps). Log in or create an account
 5. Click the 'New' button and click 'Create new app'.
 6. Enter a unique name for your project with no capital letters or spaces and select your region. Click 'Create App'.
@@ -425,4 +445,34 @@ You will need to deploy the application using Heroku.
 10. Deploy your project by going to the Deploy tab and choose 'Connect to Github'
 11. Find your repository name and select Connect.
 12. To connect your Heroku database, go to 'More' in the top right and select run console. Enter `python` to access the python intepreter.
-13. Then type `From gather import db`. Then type `db.create_all()`. You can then exit the console.
+13. Then type `from plantplates import db`. Then type `db.create_all()`. You can then exit the console.
+
+# Credits
+
+## Code
+
+- Code Institute: I referred to lessons and source code from Code Institute's Web Application Development course. I sourced the CRUD functionality on how to set up the database using the walkthrough.
+
+- Materalize CSS: I used this library throughout the project. Particularly for the nav bar, cards, forms and buttons.
+
+- Documentation: I referred to the documentation provided by [Flask](https://flask.palletsprojects.com/en/stable/), [SQLAlchemy](https://www.sqlalchemy.org/) and also [Python](https://www.python.org/doc/).
+
+- YouTube: Visiual tutorials on how cloud computing works to understand AWS better for the uploading of images to S3 Buckets. the documentation from Amazon also helped.
+
+## Content
+
+- [Pinch of Yum](https://pinchofyum.com/): I used this website as an inspiration since it had a more personal feel than something more generic like BBC Good Food.
+
+## Media
+
+- Thank you for sharing the main image on my website [Ella Olsson](https://www.pexels.com/@ella-olsson-572949/).
+
+### Acknowledgements
+
+- Many thanks to my mentor Mikto for guiding me the way with heplful feedback and recommended tools.
+- Thank you to the tutors and staff at Code Institute for their support.
+- I really appreciate the people who I work with as it provided a wide testing base.
+
+Please note this is a personal project. This website is purely for the sake of the developer's portfolio and not for public consumption.
+
+Robbie Fraser, 2024
