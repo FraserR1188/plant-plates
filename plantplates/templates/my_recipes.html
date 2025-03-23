@@ -39,12 +39,11 @@
           {% else %}
           <p>No image uploaded.</p>
           {% endif %}
-          <span class="card-title">{{ recipe.title }}</span>
         </div>
         <div class="card-content">
           <!-- Show a short snippet or summary if available -->
-          {% if recipe.summary %}
-          <p>{{ recipe.summary|truncate(100) }}</p>
+          {% if recipe.title %}
+          <p>{{ recipe.title }}</p>
           {% else %}
           <p>No summary available.</p>
           {% endif %}

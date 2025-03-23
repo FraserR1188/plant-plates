@@ -190,11 +190,27 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 - The create a new recipe page has 9 input fields, one being an upload image section which uses AWS for image upload.
 
+- The input fields include:
+
+  - Recipe Title (required max length 255 characters)
+  - Image (not required - max length 500 characters)
+  - Seasonal (not required)
+  - Total Time (not required - number)
+  - Yield (not required - number)
+  - Ingredients (required - text - new line seperated)
+  - Calories (not required - number)
+  - Steps To Prepare (required - text - new line seperated)
+  - Summary (not required - text)
+
+- I chose the inputting method of having everything seperated by a new line
+
 ## Details of Recipe
 
 ![Detail Recipe](plantplates/static/images/README/recipe-detail.png)
 
 - This is the what the recipe looks like once created on the users profile.
+- Ingrediants are shown in an unordered list.
+- Steps are shown in an ordered list.
 
 ## Edit the Recipe
 
@@ -218,7 +234,7 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ![All recipes](plantplates/static/images/README/all-recipes.png)
 
-- This page is where everyone, iunclusing the user, can access all the recipes created.
+- This page is where everyone, including the user, can access all the recipes created.
 
 ## Categories
 
@@ -253,3 +269,92 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 - This how it looks to edit a category.
 
 ![Add Category](plantplates/static/images/README/add-category.png)
+
+# Future Features
+
+### Articles
+
+- I have made the modules for users to create Articles and discuss about food topics
+
+### Leaving Reviews
+
+- Another future feature would be to leave reviews on other users recipes and give feedback.
+
+### Ratings
+
+- Leave users a star rating.
+
+# Data Model
+
+[View my Database structure here](plantplates/static/images/README/database-management.png)
+
+# Technologies Used
+
+## Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+- [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+
+## Frameworks Libraries and Programs
+
+- [Heroku](https://id.heroku.com/login)
+
+  - Heroku is the deployment source I used for this project. I'm also using it for the Postgres relational database
+
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/templating/)
+
+  - Templating language I've used with Python to add logic to my html templates.
+
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+
+  - Templating language I've used with Python to add logic to my html templates.
+
+- [Materialize CSS](https://materializecss.com/)
+
+  - Front-end library with HTML, CSS and Javascript based componants. I used features including Nav bar, Cards, Buttons and Forms.
+
+- [Google Fonts](https://fonts.google.com/)
+  - Two fonts are imported from google fonts.
+- [Font awesome](https://fontawesome.com/)
+
+  - I used icons from font awesome on social media icons on the footer.
+
+- [Git](https://git-scm.com/)
+
+  - Git was used as a version control in the terminal.
+
+- [Github](https://github.com/)
+
+  - Github was used to create and store the project repository.
+
+- [WebFormatter](https://webformatter.com/html)
+
+  - WebFormatter was used to help beautify the code.
+
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+
+  - Google Chrome's Dev Tools were used while building the project to test responsiveness and for debugging.
+
+- [Unsplash](https://unsplash.com/)
+
+  - Unsplash was used to source the hero image.
+
+- [VS Code](https://code.visualstudio.com/)
+
+  - VS Code was my IDE throughout this project.
+
+- [Figma](https://www.figma.com/)
+
+  - I learned how to use Figma for the wireframes but also for future prospects.
+
+- [DrawSQL](https://drawsql.app/)
+  - I used DrawSQL for creating my database schema.
+
+# Testing
+
+- Please refer [here](TESTING.md) for more information on testing of the Gather website
