@@ -20,10 +20,9 @@
             style="width: 100%; height: 100%; object-fit: cover"
           />
           {% endif %}
-          <span class="card-title">{{ recipe.title }}</span>
         </div>
         <div class="card-content">
-          <p>{{ recipe.summary or "No summary available." }}</p>
+          <p>{{ recipe.title }}</p>
         </div>
         <div class="card-action">
           <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">
