@@ -84,7 +84,7 @@ footer {
   position: relative;
   z-index: 1;
   text-align: center;
-  color: orange;
+  color: #fafafa;
   padding-top: 15vh; /* Adjust to center the text vertically as needed */
 }
 
@@ -127,6 +127,10 @@ footer {
   max-width: 100%;
   height: auto;
   border-radius: 8px; /* optional: rounds the corners */
+}
+
+.account-card {
+  background-color: #c0a997;
 }
 
 /* Responsive: Stack vertically on smaller screens */

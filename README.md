@@ -106,6 +106,7 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ![Before user has logged in on mobile](plantplates/static/images/README/mobile-navbar.png)
 
 - This is what the nav bar looks like before the user logs in on a mobile.
+- This a burger menu which expands when touched.
 
 ![After nav bar desktop-tablet](plantplates/static/images/README/tablet-desktop-after-log-in.png)
 
@@ -118,6 +119,8 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ![Mobile Admin](plantplates/static/images/README/mobile-admin-categories.png)
 ![Desktop Admin](plantplates/static/images/README/admin-categories.png)
 
+- This has been hard coded into the route.py. I can add more admin users as and when but this seemed to be the best option at the moment.
+
 ### Footer
 
 ![Footer](plantplates/static/images/README/footer.png)
@@ -125,6 +128,8 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 - The footer is present through the website and stays the same with the social media icons.
 
 ### Modal Messages
+
+- I felt like the modal messages were a nice interactive touch to the website. This was instant gratification of knowing when the user has logged out or logged in. As mentioned below the message only lasts 2 seconds so it shouldn't interfer with the users fluidity of going through the website.
 
 ![Logged In Modal](plantplates/static/images/README/logged-in-modal.png)
 
@@ -141,12 +146,14 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ![Homepage Hero Image](plantplates/static/images/README/home-hero-image.png)
 
 - This is situated right underneath the nav-bar with the title of the website within it and an indication of what the website is about.
+- I liked the transparency of the image and allowing the writing to come through.
 
 ### Website Values
 
 ![Website Values](plantplates/static/images/README/home-what-the-site-is.png)
 
 - These are the values of the website.
+- I have different coloured font to increase the contrast ratio to enable easier reading.
 
 ### Recently Added
 
@@ -164,7 +171,7 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ![Our Story](plantplates/static/images/README/home-story.png)
 
-- This section is about the website owners and there aim through the website.
+- This section is about the website owners and their aim through the website.
 
 ## Login Page
 
@@ -182,13 +189,15 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ![Account Page](plantplates/static/images/README/account-page.png)
 
-- Once the user has logged in, they are transport to their account page.
+- Once the user has logged in, they are transport to their account page straight. This is to invigerate the user into posting recipes onto the website.
 
 ## Create a New Recipe Page
 
 ![Create Page](plantplates/static/images/README/create-recipe-page.png)
 
 - The create a new recipe page has 9 input fields, one being an upload image section which uses AWS for image upload.
+
+- This has been designed to be as user friendly as possible.
 
 - The input fields include:
 
@@ -270,6 +279,18 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ![Add Category](plantplates/static/images/README/add-category.png)
 
+## Error Handling
+
+### Login Error
+
+![Login Error](plantplates/static/images/README/login-error.png)
+
+- This appears if the user inputs invalid information.
+
+![Sign Up Error](plantplates/static/images/README/sign-up-error.png)
+
+- This appears if the user tries to sign up again.
+
 # Future Features
 
 ### Articles
@@ -286,21 +307,21 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 - Users can rate recipes using a 5-star rating system.
 - Display average ratings prominently to help visitors choose popular or highly-rated recipes.
 
-## Enhanced User Profiles
+### Enhanced User Profiles
 
 - Users can add profile pictures, biographies, favorite cuisine types, dietary preferences (e.g., gluten-free, nut-free), and cooking skill level.
 - Showcase each user's contributed recipes and articles in their profile.
 
-## Meal Planner and Grocery List Generator
+### Meal Planner and Grocery List Generator
 
 - Users can plan their weekly meals directly on the site by selecting recipes.
 - Automatically generate grocery shopping lists based on planned meals, with printable or downloadable PDF options.
 
-## Nutrition Information and Calculators
+### Nutrition Information and Calculators
 
 - Automatically calculate nutritional data for recipes, including calories, macros (protein, carbs, fats), and vitamins, to help health-conscious users.
 
-## Cooking Mode
+### Cooking Mode
 
 - A full-screen, step-by-step cooking mode that simplifies recipe viewing and includes timers and interactive checklists for ingredients and steps.
 
