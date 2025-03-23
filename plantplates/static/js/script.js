@@ -1,73 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let sidenav = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(sidenav);
-});
+  // Initialize sidenav
+  let sidenavElems = document.querySelectorAll(".sidenav");
+  M.Sidenav.init(sidenavElems);
 
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll(".modal");
-  M.Modal.init(elems);
-});
+  // Initialize modals
+  let modalElems = document.querySelectorAll(".modal");
+  let modalInstances = M.Modal.init(modalElems);
 
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll(".parallax");
-  M.Parallax.init(elems);
-});
+  // Open login modal immediately (if it exists)
+  let loginModalElem = document.getElementById("login-success-modal");
+  if (loginModalElem) {
+    let loginModalInstance =
+      M.Modal.getInstance(loginModalElem) || M.Modal.init(loginModalElem);
+    loginModalInstance.open();
+    setTimeout(() => loginModalInstance.close(), 2000);
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll(".sidenav");
-  var instances = M.Sidenav.init(elems);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  var modalElem = document.getElementById("login-success-modal");
-  var modalInstance = M.Modal.init(modalElem);
-  modalInstance.open();
-  setTimeout(function () {
-    modalInstance.close();
-  }, 2000);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Check if the URL has the query parameter logout=true
+  // Check for logout query parameter to trigger logout modal
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("logout") === "true") {
-    var modalElem = document.getElementById("logout-success-modal");
-    var modalInstance = M.Modal.init(modalElem);
-    modalInstance.open();
-    setTimeout(function () {
-      modalInstance.close();
-      // Optionally, remove the query parameter from the URL after closing
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }, 2000);
+    let logoutModalElem = document.getElementById("logout-success-modal");
+    if (logoutModalElem) {
+      let logoutModalInstance =
+        M.Modal.getInstance(logoutModalElem) || M.Modal.init(logoutModalElem);
+      logoutModalInstance.open();
+      setTimeout(() => {
+        logoutModalInstance.close();
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname
+        );
+      }, 2000);
+    }
   }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll("select");
-  M.FormSelect.init(elems);
-});
+  // Initialize parallax
+  let parallaxElems = document.querySelectorAll(".parallax");
+  M.Parallax.init(parallaxElems);
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize modal(s)
-  var elems = document.querySelectorAll(".modal");
-  var instances = M.Modal.init(elems);
+  // Initialize form select
+  let selectElems = document.querySelectorAll("select");
+  M.FormSelect.init(selectElems);
 
-  // Attach event listener to delete buttons
+  // Attach event listener to delete buttons for dynamic modal updates
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      // Retrieve category id and name from data attributes
       var categoryId = btn.getAttribute("data-category-id");
       var categoryName = btn.getAttribute("data-category-name");
-
-      // Update the modal message
       document.getElementById("deleteMessage").textContent =
         "Are you sure you want to delete the category '" +
         categoryName +
         "'? This action will delete all recipes in this category.";
-
-      // Dynamically update the form action URL
-      // The placeholder '__placeholder__' will be replaced with the actual categoryId.
       var deleteUrl =
         "{{ url_for('delete_category', category_id='__placeholder__') }}".replace(
           "__placeholder__",

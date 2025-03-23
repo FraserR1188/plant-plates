@@ -42,6 +42,7 @@
     {% endif %} {% endfor %}
   </ol>
 
+  {% if current_user.is_authenticated %}
   <!-- Edit Button: Only show if current user is the owner -->
   {% if current_user.id == recipe.user_id %}
   <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn blue">
@@ -54,14 +55,22 @@
     href="{{ url_for('my_recipes') }}"
     class="btn grey"
     style="margin-left: 10px"
-    >Back to My Recipes</a
   >
+    Back to My Recipes
+  </a>
+
   <!-- Delete Button triggers the modal -->
-  <a href="#deleteModal" class="btn red modal-trigger" style="margin-left: 10px"
-    >Delete Recipe</a
+  <a
+    href="#deleteModal"
+    class="btn red modal-trigger"
+    style="margin-left: 10px"
   >
+    Delete Recipe
+  </a>
+  {% endif %}
 </div>
 
+{% if current_user.is_authenticated %}
 <!-- Delete Confirmation Modal -->
 <div id="deleteModal" class="modal">
   <div class="modal-content">
@@ -86,5 +95,4 @@
     </form>
   </div>
 </div>
-
-{% endblock %}
+{% endif %} {% endblock %}
