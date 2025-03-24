@@ -86,7 +86,6 @@ There is an account page which will be the hub for the return user so they can s
 
 - As a returning user, I want to be able to login easily on the homepage.
 - As a returning user, I want to be able to create / read / edit / delete my own recipes.
-- As a returning user, I want to be able to search for recipes with keyword criteria, as well as specific recipe criteria e.g. difficulty, cuisine, ingredients, how to cook.
 - As a returning user, I want to see featured / trending recipes on the homepage.
 - As a returning user, I want the website to be accessible on any device.
 - As a returning user, I want the recipe layout to be in an organised list with an image referring to the dish.
@@ -365,6 +364,10 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 ### Cooking Mode
 
 - A full-screen, step-by-step cooking mode that simplifies recipe viewing and includes timers and interactive checklists for ingredients and steps.
+
+### E-mail Newsletter
+
+- An e-mail to be sent out with the latest recipes.
 
 # Data Model
 

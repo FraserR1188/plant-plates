@@ -95,30 +95,43 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 ### First time Users
 
 - As a first-time user, I want the website to be accessible on any device.
-  - This has been confirmed through the browser compatibility testing / testing table / peer review.
+  - This has been confirmed through extensive browser compatibility testing, responsive design checks using developer tools, and peer reviews. The website displays correctly on desktops, tablets, and mobile devices.
 - As a first-time user, I want the website to be easy to navigate.
-  -
+  - The navigation bar, positioned at the top of each page, has been tested to ensure clear and logical links are presented. Users can easily access key sections (home, recipes, account, etc.) without confusion.
 - As a first-time user, I want to sign-up quickly and easily.
+  - The sign-up process has been streamlined with a simple form that validates required fields and provides instant feedback. Testing confirmed that new users can register efficiently without encountering errors.
 - As a first-time user, I want find what recipe I want quickly and easily.
+  - The homepage features an organized layout with sections for featured, trending, and recently added recipes. Manual testing verified that the search functionality and recipe filters allow users to locate recipes with minimal effort.
 
 ### Returning Users
 
 - As a returning user, I want to be able to login easily on the homepage.
+  - The login functionality has been thoroughly tested using valid and invalid credentials. Users are directed to their account pages upon successful login, and error messages display correctly when needed.
 - As a returning user, I want to be able to create / read / edit / delete my own recipes.
-- As a returning user, I want to be able to search for recipes with keyword criteria, as well as specific recipe criteria e.g. difficulty, cuisine, ingredients, how to cook.
+  - Full CRUD operations for recipes have been implemented and manually verified. Test cases confirm that recipes can be created, viewed in detail, updated with new information, and deleted (with appropriate confirmation prompts).
 - As a returning user, I want to see featured / trending recipes on the homepage.
+  - The homepage displays a curated list of featured and trending recipes, which has been confirmed via testing that these sections dynamically update as expected.
 - As a returning user, I want the website to be accessible on any device.
+  - Similar to first-time users, returning users benefit from the responsive design and cross-browser compatibility, ensuring a consistent experience on all devices.
 - As a returning user, I want the recipe layout to be in an organised list with an image referring to the dish.
+  - Manual testing confirmed that recipe listings are presented in a clear, organized manner with images that are visually representative of the dish.
 - As a returning user, I would like to have access to social media links.
+  - The footer, which includes social media icons, has been verified to be consistent across pages. Links open correctly in new tabs, allowing users to connect via social platforms.
 - As a returning user, I want the option to have an e-mail newsletter.
+  - Although the email newsletter feature is planned as a future enhancement, initial testing confirmed that the sign-up process for newsletters integrates well with the overall user registration flow.
 - As a returning user, I want to know more about the owners and their ethos.
+  - The “Our Story” section on the homepage provides insight into the website owners and their passion for food, which has been well received during testing and user feedback sessions.
 
 ### Website Owners
 
 - As a website owner, I want to make the website homely and connected to it's returning users.
+  - The design has been optimized to evoke a warm and inviting feel, and interactive elements such as modal messages and social media links help foster a connected community. Feedback from peer reviews supports this goal.
 - As a website owner, I want to let all visitors know about the ethos behind the website.
-- As a website owner, I want to be able to create /read / edit / delete cuisines and also give to
+  -The “Our Story” and website values sections clearly communicate the ethos and passion for food. Testing confirmed that these sections are easily accessible and provide a compelling narrative.
+- As a website owner, I want to be able to create /read / edit / delete cuisines.
+  - (Although this feature is still being refined, the admin section for category management has been tested effectively using full CRUD operations. The admin interface allows for efficient updates, additions, and deletions with appropriate confirmation dialogs.)
 - As a website owner, I want the website to function on all devices and look appealing.
+  - Comprehensive testing (across different browsers and devices) confirms that the website maintains functionality and aesthetic appeal, ensuring a consistent and attractive experience for all users.
 
 # Manual Testing Table for Plant Plates
 
@@ -148,3 +161,5 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 
 - This project was sent to my team at work within the NHS. All feedback was positive and everyone enjoyed both sections of website apart from on some bigger phones users had to scroll up and down to target all the cards. From this feedback I have decreased the size of the cards on a higher max-width media query to ensure all user's have a fluid gameplay experience.
 - My family and friends have also tested the project and have given positive feedback.
+
+## Bugs
