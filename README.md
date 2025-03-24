@@ -25,7 +25,7 @@ There is an account page which will be the hub for the return user so they can s
 
 ## Contents
 
-1. User Stories
+1. [User Stories](#user-stories)
    - [First-time Users](#first-time-users)
    - [Returning Users](#returning-users)
    - [Website Owners](#website-owners)
@@ -34,6 +34,46 @@ There is an account page which will be the hub for the return user so they can s
    - [Images](#images)
    - [Colour Scheme](#color-scheme)
    - [Wireframes](#wireframes)
+3. [Features](#features)
+   - [All Page Features](#all-page-features)
+     - [Navigation Bar](#navigation-bar)
+     - [Footer](#footer)
+     - [Modal Messages](#modal-messages)
+   - [Home Page](#home-page)
+     - [Hero Image](#hero-image)
+     - [Website Values](#website-values)
+     - [Recently Added](#recently-added)
+     - [Plant Plates Logo](#plant-plates-logo)
+     - [Story Behind The Website](#the-story-behind-the-website)
+   - [Login Page](#login-page)
+   - [Sign Up](#sign-up)
+   - [Account Page](#account-page)
+   - [Create a New Recipe Page](#create-a-new-recipe-page)
+   - [Details of Recipe](#details-of-recipe)
+   - [Edit Recipe](#edit-the-recipe)
+   - [Delete The Recipe](#delete-the-recipe)
+   - [My Recipes](#my-recipes)
+   - [All Recipes](#all-recipes)
+   - [Categories](#categories)
+   - [Category Section](#category-section)
+   - [Admin Categories](#admin-categories)
+   - [Error Handling](#error-handling)
+4. [Future Features](#future-features)
+5. [Data Model](#data-model)
+6. [Technologies Used](#technologies-used)
+   - [Languages Used](#languages-used)
+   - [Framework Libraries and Programs](#frameworks-libraries-and-programs)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+   - [Forking the GitHub Repository](#forking-the-github-repository)
+   - [Making a Local Clone](#making-a-local-clone)
+   - [Creating an application with Heroku](#creating-an-application-with-heroku)
+9. [Credits](#credits)
+   - [Code](#code)
+   - [Content](#content)
+   - [Acknowledgements](#acknowledgements)
+
+## User Stories
 
 ### First time Users
 
@@ -97,7 +137,7 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ## All Page Features
 
-### Navigation Bar
+## Navigation Bar
 
 ![Before use has logged in on desktop and tablet](plantplates/static/images/README/tablet-desktop-navbar.png)
 
@@ -121,13 +161,13 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 - This has been hard coded into the route.py. I can add more admin users as and when but this seemed to be the best option at the moment.
 
-### Footer
+## Footer
 
 ![Footer](plantplates/static/images/README/footer.png)
 
 - The footer is present through the website and stays the same with the social media icons.
 
-### Modal Messages
+## Modal Messages
 
 - I felt like the modal messages were a nice interactive touch to the website. This was instant gratification of knowing when the user has logged out or logged in. As mentioned below the message only lasts 2 seconds so it shouldn't interfer with the users fluidity of going through the website.
 
@@ -139,35 +179,35 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 - User sees this when logging out for 2 seconds
 
-## Home Page
+# Home Page
 
-### Hero Image
+## Hero Image
 
 ![Homepage Hero Image](plantplates/static/images/README/home-hero-image.png)
 
 - This is situated right underneath the nav-bar with the title of the website within it and an indication of what the website is about.
 - I liked the transparency of the image and allowing the writing to come through.
 
-### Website Values
+## Website Values
 
 ![Website Values](plantplates/static/images/README/home-what-the-site-is.png)
 
 - These are the values of the website.
 - I have different coloured font to increase the contrast ratio to enable easier reading.
 
-### Recently Added
+## Recently Added
 
 ![Recently Added](plantplates/static/images/README/latest-greatest.png)
 
 - These are the most recently added recipes to the website. Everyone can see these, the user doesn't have to be logged in. Maximum of 4 will be shown.
 
-### Plant Plates Logo
+## Plant Plates Logo
 
 ![Plant Plates Image](plantplates/static/images/README/home-parrallex.png)
 
 - This is the parallex which utilises Materilezes JavaScript Parallex feature.
 
-### The story behind the website
+## The story behind the website
 
 ![Our Story](plantplates/static/images/README/home-story.png)
 
@@ -263,7 +303,8 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
 ## Admin Categories
 
-- Only myself can see these pages
+- Only myself can see these pages. I felt that admin having the only rights to accessing categories was safer and maintained the website better.
+- I can add more users to be admins but I have hard coded the email into the script.
 
 ![Admin Categories](plantplates/static/images/README/admin-manage-categories.png)
 
