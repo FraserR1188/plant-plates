@@ -163,3 +163,57 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 - My family and friends have also tested the project and have given positive feedback.
 
 ## Bugs
+
+### Resolved
+
+- When linking to the category detail page, a BuildError occurred because the URL wasn’t being built with a required parameter (i.e. missing category_id). The route for category detail is defined as /category/<int:category_id>, so every call to url_for('category_detail') must include a valid category_id. To fix this issue I updated the template links to include the parameter:
+
+```
+<a href="{{ url_for('category_detail', category_id=category.id) }}">...</a>
+```
+
+- The "Manage Categories" (admin) link was not showing in the navigation bar, even for the intended admin user. The current_user.is_admin flag was false because the email comparison (used in signup or update) wasn’t normalized (case sensitivity, extra spaces) or the user’s session might not have been updated after changing the flag. To fix this issue I modified the signup (or one-off admin update) code to normalise the email:
+
+```
+new_user = User(
+    email=email.strip().lower(),
+    name=name,
+    is_admin=(email.strip().lower() == "fraserrobbie2@gmail.com")
+)
+```
+
+Ensured that after updating the admin flag (via a one-off script or shell), the user logged out and then logged back in so that current_user reflects the updated admin status. I also updated the base template with a conditional block:
+
+```
+{% if current_user.is_authenticated and current_user.is_admin %}
+    <li><a href="{{ url_for('admin_categories') }}">Manage Categories</a></li>
+{% endif %}
+```
+
+- On Heroku, Boto3 raised NoCredentialsError: Unable to locate credentials. AWS credentials were not being found by Boto3 because they weren’t properly set in the Heroku environment. I fixed this issue by settin the following config vars on Heroku (using the CLI or Dashboard):
+
+```
+heroku config:set AWS_ACCESS_KEY_ID=your_access_key_id
+heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_access_key
+heroku config:set AWS_DEFAULT_REGION=eu-west-2
+```
+
+- Another issue occured with S3 images. When viewing recipes, images uploaded to S3 were showing as broken. The image URL wasn’t accessible—typically because of insufficient public-read permissions. I updated the bucket policy to include a public read statement:
+
+```
+{
+  "Sid": "PublicReadGetObject",
+  "Effect": "Allow",
+  "Principal": "*",
+  "Action": "s3:GetObject",
+  "Resource": "arn:aws:s3:::plantplates-images/*"
+}
+```
+
+This ensures that the S3 objects are publicly accessible via their URLs.
+
+### Unresolved
+
+- When the user keeps clicking on the Account Page it keeps popping up the Success modal. Due to time I couldn't get round to fixing it.
+
+- The application sometimes comes up with an Internal Server Error when the user is going through the website especially after looking at a recipe. I discussed this with my mentor and we believe there may be an issue with the Heroku server as there were no error messages in the logs on the local CLI.
