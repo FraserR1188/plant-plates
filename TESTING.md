@@ -3,10 +3,23 @@
 Plant Plates recipe website has been tested using the following methods:
 
 - [Code Validation](#code-validation)
-  - W3C HTML Validator
-  - W3C CSS Validator
-  - JSHINT Javascript Code Quality Tool
-  - Python Validation using VS Code
+  - [W3C HTML Validator](#w3c-html-validator)
+  - [W3C CSS Validator](#w3c-css-validator)
+  - [JSHINT Javascript Code Quality Tool](#jshint-javascript-code-quality-tool)
+  - [Python Validation using VS Code](#python-validation-using-vs-code)
+  - [WAVE Webaim Accessibility Checker](#wave-webaim-accessibility-checker)
+  - [Google Lighthouse](#lighthouse)
+- [Browser Compatibility](#browser-compatibility)
+- [Responsiveness](#responsivenss)
+- [Testing User Stories](#testing-user-stories)
+  - [First Time User](#first-time-users)
+  - [Returning Users](#returning-users)
+  - [Website Owners](#website-owners)
+- [Manual Testing Table for Plant Plates](#manual-testing-table-for-plant-plates)
+- [Peer Review](#peer-review)
+- [Bugs](#bugs)
+  - [Resolved](#resolved)
+  - [Unresolved](#unresolved)
 
 # Code Validation
 

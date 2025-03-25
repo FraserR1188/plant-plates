@@ -25,53 +25,53 @@ There is an account page which will be the hub for the return user so they can s
 
 ## Contents
 
-1. [User Stories](#user-stories)
-   - [First-time Users](#first-time-users)
-   - [Returning Users](#returning-users)
-   - [Website Owners](#website-owners)
-2. [Design](#design)
-   - [Typography](#typograhy)
-   - [Images](#images)
-   - [Colour Scheme](#color-scheme)
-   - [Wireframes](#wireframes)
-3. [Features](#features)
-   - [All Page Features](#all-page-features)
-     - [Navigation Bar](#navigation-bar)
-     - [Footer](#footer)
-     - [Modal Messages](#modal-messages)
-   - [Home Page](#home-page)
-     - [Hero Image](#hero-image)
-     - [Website Values](#website-values)
-     - [Recently Added](#recently-added)
-     - [Plant Plates Logo](#plant-plates-logo)
-     - [Story Behind The Website](#the-story-behind-the-website)
-   - [Login Page](#login-page)
-   - [Sign Up](#sign-up)
-   - [Account Page](#account-page)
-   - [Create a New Recipe Page](#create-a-new-recipe-page)
-   - [Details of Recipe](#details-of-recipe)
-   - [Edit Recipe](#edit-the-recipe)
-   - [Delete The Recipe](#delete-the-recipe)
-   - [My Recipes](#my-recipes)
-   - [All Recipes](#all-recipes)
-   - [Categories](#categories)
-   - [Category Section](#category-section)
-   - [Admin Categories](#admin-categories)
-   - [Error Handling](#error-handling)
-4. [Future Features](#future-features)
-5. [Data Model](#data-model)
-6. [Technologies Used](#technologies-used)
-   - [Languages Used](#languages-used)
-   - [Framework Libraries and Programs](#frameworks-libraries-and-programs)
-7. [Testing](#testing)
-8. [Deployment](#deployment)
-   - [Forking the GitHub Repository](#forking-the-github-repository)
-   - [Making a Local Clone](#making-a-local-clone)
-   - [Creating an application with Heroku](#creating-an-application-with-heroku)
-9. [Credits](#credits)
-   - [Code](#code)
-   - [Content](#content)
-   - [Acknowledgements](#acknowledgements)
+- [User Stories](#user-stories)
+  - [First-time Users](#first-time-users)
+  - [Returning Users](#returning-users)
+  - [Website Owners](#website-owners)
+- [Design](#design)
+  - [Typography](#typograhy)
+  - [Images](#images)
+  - [Colour Scheme](#color-scheme)
+  - [Wireframes](#wireframes)
+- [Features](#features)
+  - [All Page Features](#all-page-features)
+    - [Navigation Bar](#navigation-bar)
+    - [Footer](#footer)
+    - [Modal Messages](#modal-messages)
+  - [Home Page](#home-page)
+    - [Hero Image](#hero-image)
+    - [Website Values](#website-values)
+    - [Recently Added](#recently-added)
+    - [Plant Plates Logo](#plant-plates-logo)
+    - [Story Behind The Website](#the-story-behind-the-website)
+  - [Login Page](#login-page)
+  - [Sign Up](#sign-up)
+  - [Account Page](#account-page)
+  - [Create a New Recipe Page](#create-a-new-recipe-page)
+  - [Details of Recipe](#details-of-recipe)
+  - [Edit Recipe](#edit-the-recipe)
+  - [Delete The Recipe](#delete-the-recipe)
+  - [My Recipes](#my-recipes)
+  - [All Recipes](#all-recipes)
+  - [Categories](#categories)
+  - [Category Section](#category-section)
+  - [Admin Categories](#admin-categories)
+  - [Error Handling](#error-handling)
+- [Future Features](#future-features)
+- [Data Model](#data-model)
+- [Technologies Used](#technologies-used)
+  - [Languages Used](#languages-used)
+  - [Framework Libraries and Programs](#frameworks-libraries-and-programs)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [Forking the GitHub Repository](#forking-the-github-repository)
+  - [Making a Local Clone](#making-a-local-clone)
+  - [Creating an application with Heroku](#creating-an-application-with-heroku)
+- [Credits](#credits)
+  - [Code](#code)
+  - [Content](#content)
+  - [Acknowledgements](#acknowledgements)
 
 ## User Stories
 
@@ -427,7 +427,7 @@ Since it is a recipe website, I'm going to keep most of the images centered arou
 
   - Google Chrome's Dev Tools were used while building the project to test responsiveness and for debugging.
 
-- [Unsplash](https://unsplash.com/)
+- [Pexels](https://www.pexels.com/)
 
   - Unsplash was used to source the hero image.
 
@@ -476,15 +476,6 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
 7. Press Enter. Your local clone will be created.
-
-```
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-> Cloning into `plant-plates`...
-> remote: Counting objects: 10, done.
-> remote: Compressing objects: 100% (8/8), done.
-> remove: Total 10 (delta 1), reused 10 (delta 1)
-> Unpacking objects: 100% (10/10), done.
-```
 
 Click [Here](https://docs.github.com/en/github-ae@latest/get-started/quickstart/fork-a-repo) for the GitHub quick start guide with images and more detailed explanations of the above process.
 
